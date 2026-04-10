@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gano Excel - Autenticidad y Oportunidad</title>
+    <title>Gano Excel - Oportunidad</title>
     <style>
         :root {
             --ge-blanco: #ffffff;
@@ -35,9 +35,7 @@
             text-align: center;
             border-top: 4px solid var(--ge-rojo-marca); 
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            /* Se eliminó la posición fija para que el logo suba con la página */
         }
 
         .header-corp img {
@@ -67,31 +65,14 @@
 
         .container {
             max-width: 1050px;
-            margin: 60px auto;
+            margin: 50px auto;
             padding: 0 20px;
             text-align: center;
         }
 
-        .titular-principal {
-            font-size: 2.5em;
-            color: var(--ge-azul-institucional);
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-
-        .subtitular {
-            font-size: 1.2em;
-            color: #64748b;
-            margin-bottom: 50px;
-            font-weight: 500;
-        }
-
-        /* --- AQUÍ ESTABA EL ERROR QUE CORREGÍ --- */
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* Esto le da la altura correcta al video */
+            padding-bottom: 56.25%; /* Altura correcta del video */
             height: 0;
             overflow: hidden;
             max-width: 900px;
@@ -109,7 +90,6 @@
             height: 100%;
             border-radius: 6px;
         }
-        /* ---------------------------------------- */
 
         .comparative-section {
             display: flex;
@@ -282,8 +262,6 @@
         @media (max-width: 800px) {
             .comparative-section { flex-direction: column; }
             .panel-socio { transform: scale(1); }
-            .titular-principal { font-size: 1.8em; }
-            .top-banner h2 { font-size: 1.2em; }
             .contact-text { font-size: 1.2em; }
             .warning-section { flex-direction: column; text-align: center; padding: 25px; border-left: none; border-top: 6px solid #f59e0b; }
         }
@@ -303,8 +281,6 @@
     </div>
 
     <div class="container">
-        <h1 class="titular-principal">Gano Excel Autenticidad</h1>
-        <p class="subtitular">La única vía segura y rentable es ser socio comercial.</p>
 
         <div class="video-wrapper">
             <iframe 
