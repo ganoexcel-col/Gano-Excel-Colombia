@@ -88,6 +88,29 @@
             font-weight: 500;
         }
 
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 900px;
+            margin: 0 auto 60px;
+            background-color: var(--ge-blanco);
+            border: 1px solid var(--ge-gris-borde);
+            border-radius: 12px;
+            box-shadow: var(--sombra-fuerte);
+            padding: 10px; 
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            border-radius: 8px;
+        }
+
         .comparative-section {
             display: flex;
             gap: 30px;
@@ -282,6 +305,16 @@
     <div class="container">
         <h1 class="titular-principal">Gano Excel Autenticidad</h1>
         <p class="subtitular">La única vía segura y rentable es ser socio comercial.</p>
+
+        <div class="video-wrapper">
+            <iframe 
+                src="https://www.youtube.com/embed/b2v8ywmph0A?rel=0&amp;showinfo=0&amp;controls=1&amp;modestbranding=1" 
+                title="Oportunidad Gano Excel" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+        </div>
 
         <div class="comparative-section">
             
