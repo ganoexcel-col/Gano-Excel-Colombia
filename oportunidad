@@ -6,7 +6,6 @@
     <title>Gano Excel - Autenticidad y Oportunidad</title>
     <style>
         :root {
-            /* Paleta de Colores Corporativos Premium */
             --ge-blanco: #ffffff;
             --ge-azul-profundo: #060b19; 
             --ge-azul-institucional: #0a173b; 
@@ -30,7 +29,6 @@
 
         * { box-sizing: border-box; }
 
-        /* HEADER CORPORATIVO */
         .header-corp {
             background-color: var(--ge-blanco);
             padding: 25px 20px;
@@ -47,7 +45,6 @@
             height: auto;
         }
 
-        /* BANNER SUPERIOR INFORMATIVO */
         .top-banner {
             background-color: var(--ge-azul-profundo);
             color: var(--ge-blanco);
@@ -68,7 +65,6 @@
             color: var(--ge-oro);
         }
 
-        /* CONTENEDOR PRINCIPAL */
         .container {
             max-width: 1050px;
             margin: 60px auto;
@@ -92,31 +88,6 @@
             font-weight: 500;
         }
 
-        /* SECCIÓN DE VIDEO INCRUSTADO YOUTUBE */
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            max-width: 900px;
-            margin: 0 auto 60px;
-            background-color: var(--ge-blanco);
-            border: 1px solid var(--ge-gris-borde);
-            border-radius: 12px;
-            box-shadow: var(--sombra-fuerte);
-            padding: 10px; 
-        }
-
-        .video-wrapper iframe {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: calc(100% - 20px);
-            height: calc(100% - 20px);
-            border-radius: 8px;
-        }
-
-        /* SECCIÓN COMPARATIVA */
         .comparative-section {
             display: flex;
             gap: 30px;
@@ -144,7 +115,6 @@
             letter-spacing: 1px;
         }
 
-        /* Panel Réplica (Básico) */
         .panel-replica {
             border: 1px solid var(--ge-gris-borde);
         }
@@ -152,7 +122,6 @@
         .panel-replica h3 { color: var(--ge-azul-institucional); }
         .panel-replica .icon-panel { color: #94a3b8; }
 
-        /* Panel Socio (Premium) */
         .panel-socio {
             background: linear-gradient(to bottom, var(--ge-azul-institucional), var(--ge-azul-profundo));
             color: var(--ge-blanco);
@@ -172,7 +141,6 @@
         .panel-socio .icon-panel { color: var(--ge-oro); }
         .panel-socio .texto-gris { color: #cbd5e1; }
 
-        /* Iconos */
         .icon-panel {
             font-size: 2.8em;
             text-align: center;
@@ -180,7 +148,6 @@
             display: block;
         }
 
-        /* Listas de beneficios */
         .benefits-list {
             list-style: none;
             padding: 0;
@@ -219,7 +186,6 @@
         .punto-destacado-azul { color: var(--ge-azul-institucional); font-weight: 800; font-size: 1.15em; }
         .punto-destacado-oro { color: var(--ge-oro); font-weight: 800; font-size: 1.25em; }
 
-        /* ADVERTENCIA CORPORATIVA */
         .warning-section {
             background-color: var(--ge-blanco);
             border-left: 6px solid #f59e0b; 
@@ -238,7 +204,6 @@
             color: #f59e0b; 
         }
 
-        /* CTA RESALTADO */
         .contact-highlight {
             background-color: var(--ge-blanco);
             border: 2px solid var(--ge-azul-institucional);
@@ -282,7 +247,6 @@
             letter-spacing: 1px;
         }
 
-        /* FOOTER */
         .footer {
             background-color: var(--ge-blanco);
             padding: 40px 20px;
@@ -292,7 +256,6 @@
             text-align: center;
         }
 
-        /* RESPONSIVE */
         @media (max-width: 800px) {
             .comparative-section { flex-direction: column; }
             .panel-socio { transform: scale(1); }
@@ -319,16 +282,6 @@
     <div class="container">
         <h1 class="titular-principal">Gano Excel Autenticidad</h1>
         <p class="subtitular">La única vía segura y rentable es ser socio comercial.</p>
-
-        <div class="video-wrapper">
-            <iframe 
-                src="https://www.youtube.com/embed/b2v8ywmph0A?rel=0&amp;showinfo=0&amp;controls=1&amp;modestbranding=1" 
-                title="Oportunidad Gano Excel" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowfullscreen>
-            </iframe>
-        </div>
 
         <div class="comparative-section">
             
