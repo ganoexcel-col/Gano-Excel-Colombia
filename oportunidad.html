@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gano Excel - Oportunidad</title>
+    <title>Gano Excel Colombia - Oficial</title>
     <style>
         :root {
             --ge-blanco: #ffffff;
@@ -35,7 +35,6 @@
             text-align: center;
             border-top: 4px solid var(--ge-rojo-marca); 
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            /* Se eliminó la posición fija para que el logo suba con la página */
         }
 
         .header-corp img {
@@ -72,7 +71,7 @@
 
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* Altura correcta del video */
+            padding-bottom: 56.25%; 
             height: 0;
             overflow: hidden;
             max-width: 900px;
@@ -123,7 +122,6 @@
         }
         
         .panel-replica h3 { color: var(--ge-azul-institucional); }
-        .panel-replica .icon-panel { color: #94a3b8; }
 
         .panel-socio {
             background: linear-gradient(to bottom, var(--ge-azul-institucional), var(--ge-azul-profundo));
@@ -141,8 +139,6 @@
         }
 
         .panel-socio h3 { color: var(--ge-oro); }
-        .panel-socio .icon-panel { color: var(--ge-oro); }
-        .panel-socio .texto-gris { color: #cbd5e1; }
 
         .icon-panel {
             font-size: 2.8em;
@@ -166,28 +162,17 @@
             line-height: 1.5;
         }
 
-        .benefits-list li strong {
-            display: block;
-            margin-bottom: 4px;
-            font-size: 1.1em;
-        }
-
         .panel-replica .benefits-list li::before {
             content: '✓';
             color: var(--ge-azul-institucional);
             font-weight: bold;
-            font-size: 1.2em;
         }
 
         .panel-socio .benefits-list li::before {
             content: '✦';
             color: var(--ge-oro);
             font-weight: bold;
-            font-size: 1.2em;
         }
-
-        .punto-destacado-azul { color: var(--ge-azul-institucional); font-weight: 800; font-size: 1.15em; }
-        .punto-destacado-oro { color: var(--ge-oro); font-weight: 800; font-size: 1.25em; }
 
         .warning-section {
             background-color: var(--ge-blanco);
@@ -254,8 +239,8 @@
             background-color: var(--ge-blanco);
             padding: 40px 20px;
             border-top: 1px solid var(--ge-gris-borde);
-            font-size: 0.9em;
-            color: #94a3b8;
+            font-size: 1em;
+            color: var(--ge-azul-institucional);
             text-align: center;
         }
 
@@ -263,16 +248,13 @@
             .comparative-section { flex-direction: column; }
             .panel-socio { transform: scale(1); }
             .contact-text { font-size: 1.2em; }
-            .warning-section { flex-direction: column; text-align: center; padding: 25px; border-left: none; border-top: 6px solid #f59e0b; }
         }
     </style>
 </head>
 <body>
 
     <header class="header-corp">
-        <a href="#">
-            <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Logo Gano Excel Colombia">
-        </a>
+        <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/logfull12.png" alt="Logo Gano Excel Colombia">
     </header>
 
     <div class="top-banner">
@@ -293,83 +275,32 @@
         </div>
 
         <div class="comparative-section">
-            
             <div class="panel-corp panel-replica">
                 <span class="icon-panel">📦</span>
                 <h3>Consumidor Final</h3>
-                <p style="text-align: center; color: #64748b; margin-top: -15px; margin-bottom: 30px; font-size: 0.9em;">(Sitio Réplica Oficial)</p>
                 <ul class="benefits-list">
-                    <li>
-                        <div>
-                            <strong style="color: var(--ge-azul-institucional);">PRECIO PÚBLICO:</strong>
-                            <span class="punto-destacado-azul">$147,900</span> (Gano Café 3 en 1)
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <strong style="color: var(--ge-azul-institucional);">SEGURIDAD DIRECTA:</strong>
-                            Garantía de Fábrica directa para tu tranquilidad.
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <strong style="color: var(--ge-azul-institucional);">USO PERSONAL:</strong>
-                            Ideal para consumo individual y familiar.
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <strong style="color: var(--ge-azul-institucional);">SIN INGRESOS:</strong>
-                            Modalidad exclusiva de compra, no genera comisiones.
-                        </div>
-                    </li>
+                    <li><div><strong>PRECIO AL PÚBLICO:</strong> Adquiere tus productos al valor comercial vigente.</div></li>
+                    <li><div><strong>SEGURIDAD DIRECTA:</strong> Garantía de Fábrica directa.</div></li>
+                    <li><div><strong>USO PERSONAL:</strong> Ideal para consumo individual.</div></li>
+                    <li><div><strong>SIN INGRESOS:</strong> No genera comisiones adicionales.</div></li>
                 </ul>
             </div>
 
             <div class="panel-corp panel-socio">
                 <span class="icon-panel">🔑</span>
                 <h3>Socio Independiente</h3>
-                <p style="text-align: center; color: var(--ge-oro); margin-top: -15px; margin-bottom: 30px; font-size: 0.95em; font-weight: bold; letter-spacing: 1px;">(TU MEJOR DECISIÓN)</p>
-                <ul class="benefits-list texto-gris">
-                    <li>
-                        <div>
-                            <strong style="color: var(--ge-blanco);">¡AHORRO HASTA 33%!</strong>
-                            <span class="punto-destacado-oro">$110,900</span> (Precio Socio Directo)
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <strong style="color: var(--ge-blanco);">ACCESO EXCLUSIVO:</strong>
-                            Participación en las 12 formas de ganar ingresos.
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <strong style="color: var(--ge-blanco);">NEGOCIO GLOBAL:</strong>
-                            Respaldo internacional y logística corporativa.
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <strong style="color: var(--ge-blanco);">GARANTÍA TOTAL:</strong>
-                            Seguridad de recibir producto 100% original.
-                        </div>
-                    </li>
-                    <li style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; margin-top: 25px; justify-content: center;">
-                        <div style="font-weight: 800; color: var(--ge-oro); text-align: center;">
-                            ¡MANTÉN TU CÓDIGO ACTIVO!
-                        </div>
-                    </li>
+                <ul class="benefits-list">
+                    <li><div><strong style="color: var(--ge-oro);">¡AHORRO HASTA 33%!</strong> Accede a precios de socio directo en todas tus compras.</div></li>
+                    <li><div><strong>ACCESO EXCLUSIVO:</strong> Participación en las 12 formas de ganar ingresos.</div></li>
+                    <li><div><strong>NEGOCIO GLOBAL:</strong> Respaldo internacional y logística corporativa.</div></li>
+                    <li><div><strong>GARANTÍA TOTAL:</strong> Seguridad de recibir producto 100% original.</div></li>
                 </ul>
             </div>
-
         </div>
 
         <div class="warning-section">
             <div class="warning-icon">🛡️</div>
-            <p style="margin: 0; font-size: 1.05em; color: var(--ge-gris-texto);">
-                <strong style="color: var(--ge-azul-institucional);">Protege tu inversión.</strong> Si encuentras precios menores por fuera de nuestros canales oficiales, no garantizamos su originalidad ni procedencia. Tu salud y tu bienestar son nuestra prioridad.
-            </p>
+            <p style="margin: 0;"><strong>Protege tu inversión.</strong> Si encuentras precios por debajo del valor de socio en canales no oficiales, no garantizamos su originalidad. Tu salud es nuestra prioridad.</p>
         </div>
 
         <div class="contact-highlight">
@@ -378,12 +309,11 @@
                 <strong>GANO EXCEL</strong>
             </p>
         </div>
-
     </div>
 
     <footer class="footer">
-        <p><strong>&copy; 2026 - Independiente Gano Excel Colombia.</strong> Todos los derechos reservados.</p>
-        <p>Página informativa oficial operada por distribuidores independientes.</p>
+        <p><strong>Esta página es oficial de Gano Excel Colombia. No pertenece a ningún vendedor independiente.</strong></p>
+        <p>&copy; 2026 - Gano Excel S.A. Todos los derechos reservados.</p>
     </footer>
 
 </body>
