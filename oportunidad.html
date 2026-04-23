@@ -3,70 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gano Excel Colombia - Oficial</title>
+    <title>Gano Excel Colombia - Oportunidad Oficial</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --ge-blanco: #ffffff;
-            --ge-azul-profundo: #060b19; 
+            --ge-azul-profundo: #040812; 
             --ge-azul-institucional: #0a173b; 
-            --ge-oro: #c9a44c; 
+            --ge-oro: #d4af37; 
+            --ge-oro-brillo: #fadd70;
             --ge-rojo-marca: #c8102e; 
-            --ge-gris-fondo: #f8f9fa;
-            --ge-gris-texto: #4a4a4a;
+            --ge-gris-fondo: #f4f6f9;
+            --ge-gris-texto: #333333;
             --ge-gris-borde: #e2e8f0;
-            --sombra-elegante: 0 10px 25px rgba(10, 23, 59, 0.08);
-            --sombra-fuerte: 0 15px 35px rgba(10, 23, 59, 0.15);
+            --sombra-suave: 0 8px 20px rgba(0, 0, 0, 0.05);
+            --sombra-fuerte: 0 20px 40px rgba(10, 23, 59, 0.2);
+            --sombra-oro: 0 10px 30px rgba(212, 175, 55, 0.3);
         }
 
         body {
-            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Open Sans', sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--ge-gris-fondo);
             color: var(--ge-gris-texto);
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
         }
 
         * { box-sizing: border-box; }
 
+        /* --- ANIMACIONES GENERALES --- */
+        @keyframes latido {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+
+        @keyframes flotar {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes brillo-completo {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- ANIMACIONES AVANZADAS PARA EL CTA --- */
+        
+        /* 1. Entrada suave (Aparecer subiendo) */
+        @keyframes aparecerSubiendo {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 2. Brillo de seda continuo en el fondo */
+        @keyframes brilloFondoCta {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 3. Pulso suave del borde dorado */
+        @keyframes pulsoBordeOro {
+            0% { border-color: var(--ge-oro); box-shadow: var(--sombra-fuerte); }
+            50% { border-color: var(--ge-oro-brillo); box-shadow: 0 20px 50px rgba(212, 175, 55, 0.4); }
+            100% { border-color: var(--ge-oro); box-shadow: var(--sombra-fuerte); }
+        }
+
         .header-corp {
             background-color: var(--ge-blanco);
-            padding: 25px 20px;
+            padding: 20px 20px;
             text-align: center;
-            border-top: 4px solid var(--ge-rojo-marca); 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--ge-rojo-marca); 
+            box-shadow: var(--sombra-suave);
+            position: relative;
+            z-index: 10;
         }
 
         .header-corp img {
-            max-width: 220px;
+            max-width: 200px;
             height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .header-corp img:hover {
+            transform: scale(1.05);
         }
 
         .top-banner {
-            background-color: var(--ge-azul-profundo);
+            background: linear-gradient(135deg, var(--ge-azul-profundo) 0%, var(--ge-azul-institucional) 100%);
             color: var(--ge-blanco);
-            padding: 20px;
+            padding: 35px 20px;
             text-align: center;
-            border-bottom: 2px solid var(--ge-oro);
+            border-bottom: 3px solid var(--ge-oro);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .top-banner::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 60%);
+            animation: flotar 6s infinite ease-in-out;
+            pointer-events: none;
         }
 
         .top-banner h2 {
             margin: 0;
-            font-size: 1.5em;
+            font-size: 2em;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 700;
+            letter-spacing: 1px;
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 2;
         }
 
         .top-banner span.oro-destacado {
             color: var(--ge-oro);
         }
 
+        .top-banner p {
+            margin: 10px 0 0 0; 
+            color: #b0c4de; 
+            font-size: 1.1em; 
+            letter-spacing: 3px;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+        }
+
         .container {
-            max-width: 1050px;
-            margin: 50px auto;
+            max-width: 1100px;
+            margin: -30px auto 50px;
             padding: 0 20px;
-            text-align: center;
+            position: relative;
+            z-index: 5;
         }
 
         .video-wrapper {
@@ -74,11 +159,12 @@
             padding-bottom: 56.25%; 
             height: 0;
             overflow: hidden;
-            max-width: 900px;
-            margin: 0 auto 60px;
-            border: 6px solid var(--ge-azul-institucional);
-            border-radius: 12px;
+            max-width: 950px;
+            margin: 0 auto 50px;
+            border: 8px solid var(--ge-blanco);
+            border-radius: 16px;
             box-shadow: var(--sombra-fuerte);
+            background-color: #000;
         }
 
         .video-wrapper iframe {
@@ -87,7 +173,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            border-radius: 6px;
+            border-radius: 8px;
+        }
+
+        .seccion-titulo {
+            text-align: center;
+            font-size: 2.2em;
+            color: var(--ge-azul-institucional);
+            margin-bottom: 40px;
+            font-weight: 800;
         }
 
         .comparative-section {
@@ -99,52 +193,78 @@
 
         .panel-corp {
             flex: 1;
-            padding: 40px 35px;
-            border-radius: 16px;
-            box-shadow: var(--sombra-elegante);
+            padding: 50px 40px;
+            border-radius: 20px;
             background-color: var(--ge-blanco);
             position: relative;
-            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .panel-replica {
+            border: 2px solid var(--ge-gris-borde);
+            box-shadow: var(--sombra-suave);
+        }
+
+        .panel-replica:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--sombra-fuerte);
+            border-color: var(--ge-azul-institucional);
+        }
+        
+        .panel-replica h3 { 
+            color: var(--ge-azul-institucional); 
+        }
+
+        .panel-socio {
+            background: linear-gradient(145deg, var(--ge-azul-institucional), var(--ge-azul-profundo));
+            color: var(--ge-blanco);
+            border: 2px solid var(--ge-oro);
+            transform: scale(1.05); 
+            box-shadow: var(--sombra-oro);
+            z-index: 2;
+        }
+
+        .panel-socio:hover {
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: 0 25px 50px rgba(212, 175, 55, 0.4);
+        }
+
+        .panel-socio h3 { color: var(--ge-oro); font-size: 2em; }
+
+        .sello-original {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: linear-gradient(90deg, var(--ge-oro) 0%, var(--ge-oro-brillo) 50%, var(--ge-oro) 100%);
+            background-size: 200% auto;
+            color: var(--ge-azul-profundo);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.85em;
+            font-weight: 900;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.5);
+            letter-spacing: 1px;
+            display: inline-block;
+            animation: latido 2s infinite, brillo-completo 3s linear infinite;
+        }
+
+        .icon-panel {
+            font-size: 3.5em;
+            text-align: center;
+            margin-bottom: 20px;
+            display: block;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.1);
         }
 
         .panel-corp h3 {
             text-align: center;
             text-transform: uppercase;
-            font-size: 1.5em;
+            font-size: 1.7em;
             margin-top: 0;
-            margin-bottom: 25px;
-            font-weight: 800;
+            margin-bottom: 30px;
+            font-weight: 900;
             letter-spacing: 1px;
-        }
-
-        .panel-replica {
-            border: 1px solid var(--ge-gris-borde);
-        }
-        
-        .panel-replica h3 { color: var(--ge-azul-institucional); }
-
-        .panel-socio {
-            background: linear-gradient(to bottom, var(--ge-azul-institucional), var(--ge-azul-profundo));
-            color: var(--ge-blanco);
-            border: 1px solid var(--ge-azul-institucional);
-            transform: scale(1.02); 
-            box-shadow: var(--sombra-fuerte);
-        }
-
-        .panel-socio::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; height: 4px;
-            background-color: var(--ge-oro);
-        }
-
-        .panel-socio h3 { color: var(--ge-oro); }
-
-        .icon-panel {
-            font-size: 2.8em;
-            text-align: center;
-            margin-bottom: 15px;
-            display: block;
         }
 
         .benefits-list {
@@ -154,117 +274,166 @@
         }
 
         .benefits-list li {
-            margin-bottom: 20px;
-            font-size: 1.05em;
+            margin-bottom: 25px;
+            font-size: 1.1em;
             display: flex;
             align-items: flex-start;
             gap: 15px;
             line-height: 1.5;
         }
 
+        .benefits-list li::before {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-top: 3px;
+        }
+
         .panel-replica .benefits-list li::before {
             content: '✓';
+            background-color: rgba(10, 23, 59, 0.1);
             color: var(--ge-azul-institucional);
-            font-weight: bold;
         }
 
         .panel-socio .benefits-list li::before {
-            content: '✦';
-            color: var(--ge-oro);
-            font-weight: bold;
-        }
-
-        /* ESTILOS DEL SELLO NUEVO */
-        .sello-original {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background-color: var(--ge-oro);
-            color: var(--ge-azul-institucional);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.75em;
-            font-weight: 800;
-            text-transform: uppercase;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            letter-spacing: 0.5px;
-            display: inline-block;
+            content: '★';
+            background-color: rgba(212, 175, 55, 0.2);
+            color: var(--ge-oro-brillo);
+            font-size: 0.9em;
         }
 
         .warning-section {
             background-color: var(--ge-blanco);
-            border-left: 6px solid #f59e0b; 
+            border-left: 8px solid #f59e0b; 
             padding: 30px 40px;
-            border-radius: 8px;
+            border-radius: 12px;
             margin: 0 auto 60px;
-            max-width: 900px;
+            max-width: 800px;
             display: flex;
             align-items: center;
             gap: 25px;
-            box-shadow: var(--sombra-elegante);
+            box-shadow: var(--sombra-suave);
+            transition: transform 0.3s ease;
+        }
+
+        .warning-section:hover {
+            transform: scale(1.02);
         }
 
         .warning-icon {
-            font-size: 2.5em;
+            font-size: 3em;
             color: #f59e0b; 
         }
 
-        .contact-highlight {
-            background-color: var(--ge-blanco);
-            border: 2px solid var(--ge-azul-institucional);
-            padding: 45px 30px;
-            border-radius: 12px;
-            margin-bottom: 80px;
+        /* --- BLOQUE CTA CON ANIMACIONES AVANZADAS --- */
+        .cta-container {
             text-align: center;
-            box-shadow: var(--sombra-fuerte);
-            position: relative;
+            margin-bottom: 80px;
+            padding: 50px 20px;
+            background: linear-gradient(to right, #f8f9fa, #ffffff, #f8f9fa);
+            border-radius: 20px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.02);
+            
+            /* Animación 1: Entrada suave al cargar */
+            opacity: 0; /* Necesario para que la animación empiece desde invisible */
+            animation: aparecerSubiendo 1.2s ease-out 0.5s forwards; /* 0.5s de delay */
         }
 
-        .contact-highlight::after {
+        .cta-title {
+            font-size: 1.8em;
+            color: var(--ge-azul-institucional);
+            margin-bottom: 30px;
+            font-weight: 800;
+        }
+
+        .cta-box-message {
+            display: inline-block;
+            
+            /* Modificación del fondo para soportar la animación de brillo */
+            background: linear-gradient(135deg, 
+                var(--ge-azul-institucional) 0%, 
+                var(--ge-azul-profundo) 50%, 
+                var(--ge-azul-institucional) 100%
+            );
+            background-size: 200% auto; /* Necesario para que el degradado se mueva */
+            
+            color: var(--ge-blanco);
+            padding: 40px 60px;
+            border-radius: 16px;
+            font-size: 1.45em;
+            font-weight: 600;
+            line-height: 1.5;
+            max-width: 850px;
+            position: relative;
+            
+            /* Estilos de borde base */
+            border: 3px solid var(--ge-oro);
+            
+            /* Animaciones Continuas (Fondo y Borde) */
+            animation: 
+                brilloFondoCta 6s linear infinite, 
+                pulsoBordeOro 3s infinite;
+                
+            transition: all 0.4s ease; /* Para que el hover sea suave */
+            cursor: default;
+        }
+
+        /* Animación 3: Interacción al pasar el mouse */
+        .cta-box-message:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 70px rgba(212, 175, 55, 0.5); /* Sombra dorada intensa */
+            animation-play-state: paused; /* Pausa las animaciones continuas al interactuar */
+        }
+
+        .cta-box-message::before {
             content: '🤝';
             position: absolute;
             top: -25px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 2.5em;
+            font-size: 2em;
             background-color: var(--ge-gris-fondo);
             padding: 0 15px;
             border-radius: 50%;
         }
 
-        .contact-text {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: var(--ge-azul-profundo);
-            margin: 0;
-            text-transform: uppercase;
-            line-height: 1.5;
-        }
-
-        .contact-text strong {
-            color: var(--ge-oro);
-            background-color: var(--ge-azul-institucional);
-            padding: 6px 20px;
-            border-radius: 6px;
-            display: inline-block;
+        .cta-box-message span.marca {
+            display: block;
             margin-top: 15px;
-            font-size: 1.1em;
-            letter-spacing: 1px;
+            color: var(--ge-oro-brillo);
+            font-size: 1.6em;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.4);
         }
 
         .footer {
-            background-color: var(--ge-blanco);
+            background-color: var(--ge-azul-profundo);
             padding: 40px 20px;
-            border-top: 1px solid var(--ge-gris-borde);
-            font-size: 1em;
-            color: var(--ge-azul-institucional);
+            font-size: 0.95em;
+            color: #8fa0bd;
             text-align: center;
+            border-top: 3px solid var(--ge-oro);
         }
 
-        @media (max-width: 800px) {
+        .footer strong {
+            color: var(--ge-blanco);
+        }
+
+        @media (max-width: 900px) {
             .comparative-section { flex-direction: column; }
-            .panel-socio { transform: scale(1); }
-            .contact-text { font-size: 1.2em; }
+            .panel-socio { transform: scale(1); margin-top: 30px; }
+            .panel-socio:hover { transform: translateY(-10px); }
+            .sello-original { right: 50%; transform: translateX(50%); top: -15px; }
+            .top-banner h2 { font-size: 1.5em; }
+            .cta-box-message { font-size: 1.1em; padding: 30px 20px; border-width: 2px; }
+            .cta-box-message span.marca { font-size: 1.3em; }
+            .seccion-titulo { font-size: 1.8em; }
         }
     </style>
 </head>
@@ -276,7 +445,7 @@
 
     <div class="top-banner">
         <h2>Desbloquea tu poder de <span class="oro-destacado">Bienestar y Prosperidad</span></h2>
-        <p style="margin: 5px 0 0 0; color: #94a3b8; font-size: 0.95em; letter-spacing: 1px;">EXCLUSIVAMENTE CON NOSOTROS</p>
+        <p>EXCLUSIVAMENTE CON NOSOTROS</p>
     </div>
 
     <div class="container">
@@ -291,14 +460,16 @@
             </iframe>
         </div>
 
+        <h2 class="seccion-titulo">Elige la forma inteligente de unirte</h2>
+
         <div class="comparative-section">
             <div class="panel-corp panel-replica">
                 <span class="icon-panel">📦</span>
                 <h3>Consumidor Final</h3>
                 <ul class="benefits-list">
-                    <li><div><strong>PRECIO PÚBLICO:</strong> Compra al valor comercial estándar sin descuentos.</div></li>
+                    <li><div><strong>PRECIO PÚBLICO:</strong> Compra al valor comercial estándar sin descuentos especiales.</div></li>
                     <li><div><strong>SEGURIDAD DIRECTA:</strong> Recibes respaldo y garantía de fábrica en tu compra.</div></li>
-                    <li><div><strong>USO PERSONAL Y BIENESTAR:</strong> Productos ideales para tu propio bienestar y consumo individual.</div></li>
+                    <li><div><strong>USO PERSONAL:</strong> Productos ideales para tu propio bienestar y consumo individual.</div></li>
                     <li><div><strong>SIN GENERACIÓN DE INGRESOS:</strong> Tu compra no genera comisiones ni residuales de red.</div></li>
                 </ul>
             </div>
@@ -306,33 +477,38 @@
             <div class="panel-corp panel-socio">
                 <div class="sello-original">⭐ Tu Mejor Opción</div>
                 
-                <span class="icon-panel">🔑</span>
+                <span class="icon-panel">🚀</span>
                 <h3>Afiliado</h3>
                 <ul class="benefits-list">
-                    <li><div><strong style="color: var(--ge-oro);">¡AHORRO EXCLUSIVO HASTA EL 33%!</strong> Accede a precios de costo directo con descuentos garantizados.</div></li>
-                    <li><div><strong style="color: var(--ge-blanco);">GARANTÍA ABSOLUTA DE ORIGINALIDAD:</strong> Seguridad total de recibir producto 100% original directo de la compañía.</div></li>
-                    <li><div><strong style="color: var(--ge-blanco);">OPORTUNIDAD DE NEGOCIO GLOBAL:</strong> Apoyo de una multinacional para emprender tu propio negocio rentable.</div></li>
-                    <li><div><strong style="color: var(--ge-blanco);">MÚLTIPLES FUENTES DE INGRESO:</strong> Participación en las 12 formas de ganar comisiones y residuales de la compañía.</div></li>
+                    <li><div><strong style="color: var(--ge-oro-brillo);">AHORRO HASTA EL 33%:</strong> Accede inmediatamente a precios de costo directo con descuentos de por vida.</div></li>
+                    <li><div><strong style="color: var(--ge-blanco);">GARANTÍA DE ORIGINALIDAD:</strong> Seguridad absoluta de recibir producto 100% original directo de la multinacional.</div></li>
+                    <li><div><strong style="color: var(--ge-blanco);">NEGOCIO GLOBAL LLAVE EN MANO:</strong> Apoyo corporativo total para emprender tu negocio altamente rentable.</div></li>
+                    <li><div><strong style="color: var(--ge-blanco);">LIBERTAD FINANCIERA:</strong> Participación activa en las 12 formas exclusivas de ganar comisiones y residuales.</div></li>
                 </ul>
             </div>
         </div>
 
         <div class="warning-section">
             <div class="warning-icon">🛡️</div>
-            <p style="margin: 0;"><strong>Protege tu inversión.</strong> Si encuentras precios por debajo del valor de socio en canales no oficiales, no garantizamos su originalidad. Tu salud es nuestra prioridad.</p>
+            <div>
+                <h4 style="margin: 0 0 5px 0; color: var(--ge-azul-institucional); font-size: 1.2em;">Protege tu inversión y tu salud</h4>
+                <p style="margin: 0; font-size: 0.95em;">Si encuentras precios por debajo del valor de Afiliado en canales no oficiales, <strong>no garantizamos su originalidad ni caducidad</strong>. Tu bienestar es nuestra prioridad.</p>
+            </div>
         </div>
 
-        <div class="contact-highlight">
-            <p class="contact-text">
+        <div class="cta-container">
+            <h2 class="cta-title">¿Listo para transformar tu futuro?</h2>
+            
+            <div class="cta-box-message">
                 Contáctate con la persona que te compartió este video para iniciar en nuestra gran familia<br>
-                <strong>GANO EXCEL</strong>
-            </p>
+                <span class="marca">GANO EXCEL</span>
+            </div>
         </div>
     </div>
 
     <footer class="footer">
-        <p><strong>Esta página es oficial de Gano Excel Colombia. No pertenece a ningún vendedor independiente.</strong></p>
-        <p>&copy; 2026 - Gano Excel S.A. Todos los derechos reservados.</p>
+        <p><strong>Página informativa sobre la Oportunidad de Gano Excel Colombia.</strong></p>
+        <p>&copy; 2026 - Todos los derechos reservados. El éxito depende del esfuerzo y dedicación de cada Afiliado.</p>
     </footer>
 
 </body>
