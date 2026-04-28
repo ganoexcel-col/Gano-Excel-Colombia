@@ -330,7 +330,7 @@
             color: #f59e0b; 
         }
 
-        /* --- BLOQUE CTA CON ANIMACIONES AVANZADAS --- */
+        /* --- BLOQUE CTA OPTIMIZADO PARA LLAMADA --- */
         .cta-container {
             text-align: center;
             margin-bottom: 80px;
@@ -339,9 +339,8 @@
             border-radius: 20px;
             box-shadow: inset 0 0 20px rgba(0,0,0,0.02);
             
-            /* Animación 1: Entrada suave al cargar */
-            opacity: 0; /* Necesario para que la animación empiece desde invisible */
-            animation: aparecerSubiendo 1.2s ease-out 0.5s forwards; /* 0.5s de delay */
+            opacity: 0;
+            animation: aparecerSubiendo 1.2s ease-out 0.5s forwards;
         }
 
         .cta-title {
@@ -352,64 +351,99 @@
         }
 
         .cta-box-message {
-            display: inline-block;
+            display: inline-flex; /* Flex para alinear icono y texto */
+            align-items: center;
+            justify-content: center;
+            gap: 20px; /* Espacio entre icono y texto */
             
-            /* Modificación del fondo para soportar la animación de brillo */
             background: linear-gradient(135deg, 
                 var(--ge-azul-institucional) 0%, 
                 var(--ge-azul-profundo) 50%, 
                 var(--ge-azul-institucional) 100%
             );
-            background-size: 200% auto; /* Necesario para que el degradado se mueva */
+            background-size: 200% auto;
             
             color: var(--ge-blanco);
-            padding: 40px 60px;
-            border-radius: 16px;
-            font-size: 1.45em;
-            font-weight: 600;
-            line-height: 1.5;
-            max-width: 850px;
-            position: relative;
+            padding: 25px 60px; /* Padding ajustado para forma de botón */
+            border-radius: 50px; /* Forma de píldora más pronunciada */
             
-            /* Estilos de borde base */
+            /* Sombra base */
             border: 3px solid var(--ge-oro);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
             
-            /* Animaciones Continuas (Fondo y Borde) */
+            /* Animaciones Continuas */
             animation: 
                 brilloFondoCta 6s linear infinite, 
                 pulsoBordeOro 3s infinite;
                 
-            transition: all 0.4s ease; /* Para que el hover sea suave */
-            cursor: default;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto pop suave */
+            cursor: pointer;
+            text-decoration: none;
         }
 
-        /* Animación 3: Interacción al pasar el mouse */
         .cta-box-message:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 30px 70px rgba(212, 175, 55, 0.5); /* Sombra dorada intensa */
-            animation-play-state: paused; /* Pausa las animaciones continuas al interactuar */
+            transform: translateY(-5px) scale(1.03); /* Se levanta y agranda más */
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.6); /* Sombra dorada intensa */
+            animation-play-state: paused;
         }
 
-        .cta-box-message::before {
-            content: '🤝';
-            position: absolute;
-            top: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 2em;
-            background-color: var(--ge-gris-fondo);
-            padding: 0 15px;
-            border-radius: 50%;
-        }
-
-        .cta-box-message span.marca {
-            display: block;
-            margin-top: 15px;
+        /* Icono de teléfono grande */
+        .call-icon {
+            font-size: 3em;
             color: var(--ge-oro-brillo);
-            font-size: 1.6em;
+            text-shadow: 0 0 15px rgba(250, 221, 112, 0.5);
+        }
+
+        /* Bloque de texto derecho */
+        .call-text-block {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .call-action-text {
+            font-size: 1.2em;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--ge-blanco);
+        }
+
+        /* El número es el elemento más prominente */
+        .call-number {
+            font-size: 2.2em;
             font-weight: 900;
-            letter-spacing: 2px;
+            color: var(--ge-oro-brillo);
+            letter-spacing: 1px;
             text-shadow: 0 2px 10px rgba(212, 175, 55, 0.4);
+        }
+
+        .call-subtext {
+            font-size: 0.9em;
+            color: #b0c4de;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .call-subtext span.marca-small {
+            color: var(--ge-blanco);
+            font-weight: 800;
+        }
+
+        /* El emoji 🤝 se mantiene pero fuera del botón principal */
+        .cta-container::before {
+            content: '🤝';
+            display: block;
+            font-size: 2.5em;
+            margin-bottom: -15px;
+            position: relative;
+            z-index: 6;
+            background-color: var(--ge-gris-fondo);
+            width: 60px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 50%;
         }
 
         .footer {
@@ -431,8 +465,18 @@
             .panel-socio:hover { transform: translateY(-10px); }
             .sello-original { right: 50%; transform: translateX(50%); top: -15px; }
             .top-banner h2 { font-size: 1.5em; }
-            .cta-box-message { font-size: 1.1em; padding: 30px 20px; border-width: 2px; }
-            .cta-box-message span.marca { font-size: 1.3em; }
+            
+            /* Ajustes móviles para el botón de llamada */
+            .cta-box-message { 
+                flex-direction: column; /* Icono arriba, texto abajo */
+                gap: 10px;
+                padding: 20px 30px;
+                border-radius: 25px;
+            }
+            .call-icon { font-size: 2.5em; }
+            .call-text-block { text-align: center; }
+            .call-action-text { font-size: 1em; }
+            .call-number { font-size: 1.6em; }
             .seccion-titulo { font-size: 1.8em; }
         }
     </style>
@@ -499,10 +543,14 @@
         <div class="cta-container">
             <h2 class="cta-title">¿Listo para transformar tu futuro?</h2>
             
-            <div class="cta-box-message">
-                Contáctate con la persona que te compartió este video para iniciar en nuestra gran familia<br>
-                <span class="marca">GANO EXCEL</span>
-            </div>
+            <a href="tel:6017423399" class="cta-box-message">
+                <span class="call-icon">📞</span>
+                <span class="call-text-block">
+                    <span class="call-action-text">LLÁMANOS AHORA AL</span>
+                    <span class="call-number">601 742 3399</span>
+                    <span class="call-subtext">y únete a nuestra gran familia <span class="marca-small">GANO EXCEL</span></span>
+                </span>
+            </a>
         </div>
     </div>
 
