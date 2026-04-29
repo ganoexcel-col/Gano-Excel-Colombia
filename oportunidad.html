@@ -21,7 +21,7 @@
             --ge-gris-texto: #333333;
             --ge-gris-borde: #e2e8f0;
             --sombra-suave: 0 8px 20px rgba(0, 0, 0, 0.05);
-            --sombra-fuerte: 0 20px 40px rgba(10, 23, 59, 0.2);
+            --sombra-fuerte: 0 20px 40px rgba(10, 23, 59, 0.15);
             --sombra-oro: 0 10px 30px rgba(212, 175, 55, 0.3);
         }
 
@@ -60,22 +60,17 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* --- ANIMACIONES AVANZADAS PARA EL CTA --- */
-        
-        /* 1. Entrada suave (Aparecer subiendo) */
         @keyframes aparecerSubiendo {
             from { opacity: 0; transform: translateY(50px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* 2. Brillo de seda continuo en el fondo */
         @keyframes brilloFondoCta {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        /* 3. Pulso suave del borde dorado */
         @keyframes pulsoBordeOro {
             0% { border-color: var(--ge-oro); box-shadow: var(--sombra-fuerte); }
             50% { border-color: var(--ge-oro-brillo); box-shadow: 0 20px 50px rgba(212, 175, 55, 0.4); }
@@ -330,7 +325,7 @@
             color: #f59e0b; 
         }
 
-        /* --- BLOQUE CTA OPTIMIZADO PARA LLAMADA --- */
+        /* --- BLOQUE CTA OPTIMIZADO PARA LLAMADA Y WHATSAPP --- */
         .cta-container {
             text-align: center;
             margin-bottom: 80px;
@@ -350,11 +345,23 @@
             font-weight: 800;
         }
 
+        .cta-buttons-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
         .cta-box-message {
-            display: inline-flex; /* Flex para alinear icono y texto */
+            flex: 1;
+            min-width: 300px;
+            display: inline-flex; 
             align-items: center;
             justify-content: center;
-            gap: 20px; /* Espacio entre icono y texto */
+            gap: 15px; 
             
             background: linear-gradient(135deg, 
                 var(--ge-azul-institucional) 0%, 
@@ -364,37 +371,33 @@
             background-size: 200% auto;
             
             color: var(--ge-blanco);
-            padding: 25px 60px; /* Padding ajustado para forma de botón */
-            border-radius: 50px; /* Forma de píldora más pronunciada */
+            padding: 25px 30px; 
+            border-radius: 50px; 
             
-            /* Sombra base */
             border: 3px solid var(--ge-oro);
             box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
             
-            /* Animaciones Continuas */
             animation: 
                 brilloFondoCta 6s linear infinite, 
                 pulsoBordeOro 3s infinite;
                 
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto pop suave */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
             cursor: pointer;
             text-decoration: none;
         }
 
         .cta-box-message:hover {
-            transform: translateY(-5px) scale(1.03); /* Se levanta y agranda más */
-            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.6); /* Sombra dorada intensa */
+            transform: translateY(-5px) scale(1.03); 
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.6); 
             animation-play-state: paused;
         }
 
-        /* Icono de teléfono grande */
         .call-icon {
-            font-size: 3em;
+            font-size: 2.8em;
             color: var(--ge-oro-brillo);
             text-shadow: 0 0 15px rgba(250, 221, 112, 0.5);
         }
 
-        /* Bloque de texto derecho */
         .call-text-block {
             text-align: left;
             display: flex;
@@ -403,16 +406,15 @@
         }
 
         .call-action-text {
-            font-size: 1.2em;
+            font-size: 1.1em;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--ge-blanco);
         }
 
-        /* El número es el elemento más prominente */
         .call-number {
-            font-size: 2.2em;
+            font-size: 1.8em;
             font-weight: 900;
             color: var(--ge-oro-brillo);
             letter-spacing: 1px;
@@ -420,7 +422,7 @@
         }
 
         .call-subtext {
-            font-size: 0.9em;
+            font-size: 0.85em;
             color: #b0c4de;
             font-weight: 600;
             margin-top: 5px;
@@ -431,7 +433,29 @@
             font-weight: 800;
         }
 
-        /* El emoji 🤝 se mantiene pero fuera del botón principal */
+        /* --- BOTÓN WHATSAPP ESPECÍFICO --- */
+        .wpp-btn {
+            border: 3px solid #25D366;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.2);
+            animation: brilloFondoCta 6s linear infinite, pulsoBordeWpp 3s infinite;
+        }
+
+        .wpp-btn:hover {
+            box-shadow: 0 20px 40px rgba(37, 211, 102, 0.5); 
+        }
+
+        .wpp-icon {
+            font-size: 3em;
+            color: #25D366;
+            text-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
+        }
+
+        @keyframes pulsoBordeWpp {
+            0% { border-color: #25D366; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.2); }
+            50% { border-color: #4dfa8a; box-shadow: 0 20px 50px rgba(37, 211, 102, 0.4); }
+            100% { border-color: #25D366; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.2); }
+        }
+
         .cta-container::before {
             content: '🤝';
             display: block;
@@ -444,6 +468,149 @@
             margin-left: auto;
             margin-right: auto;
             border-radius: 50%;
+        }
+
+        /* --- NUEVA SECCIÓN DE SEDES MODERNA (ACORDEÓN) --- */
+        .sedes-container {
+            margin-bottom: 80px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .sedes-subtitle {
+            text-align: center;
+            color: #666;
+            margin-top: -30px;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        .sedes-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .sede-item {
+            background-color: var(--ge-blanco);
+            border-radius: 12px;
+            box-shadow: var(--sombra-suave);
+            border: 2px solid transparent;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .sede-item:hover {
+            box-shadow: var(--sombra-fuerte);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        .sede-item[open] {
+            border-color: var(--ge-oro);
+            box-shadow: var(--sombra-fuerte);
+        }
+
+        .sede-summary {
+            padding: 20px 25px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3em;
+            font-weight: 800;
+            color: var(--ge-azul-institucional);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            list-style: none;
+            user-select: none;
+        }
+
+        .sede-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .sede-summary::before {
+            content: '🏢';
+            margin-right: 15px;
+            font-size: 1.2em;
+            filter: grayscale(0.5);
+            transition: all 0.3s ease;
+        }
+
+        .sede-item[open] .sede-summary::before {
+            filter: grayscale(0);
+            transform: scale(1.1);
+        }
+
+        .sede-summary-text {
+            flex-grow: 1;
+        }
+
+        .sede-summary::after {
+            content: '+';
+            font-size: 1.5em;
+            font-weight: 400;
+            color: var(--ge-oro);
+            background-color: var(--ge-gris-fondo);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .sede-item[open] .sede-summary::after {
+            content: '−';
+            transform: rotate(180deg);
+            background-color: var(--ge-oro);
+            color: var(--ge-blanco);
+        }
+
+        .sede-content {
+            padding: 0 25px 25px 65px;
+            color: var(--ge-gris-texto);
+            font-size: 1.05em;
+            line-height: 1.6;
+            border-top: 1px solid var(--ge-gris-borde);
+            margin-top: 5px;
+            padding-top: 20px;
+        }
+
+        .sede-info-line {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .sede-info-icon {
+            font-size: 1.2em;
+            margin-top: 2px;
+        }
+
+        .sede-content strong {
+            color: var(--ge-azul-institucional);
+        }
+
+        .sub-sede {
+            background-color: #f8fbff;
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 3px solid var(--ge-azul-institucional);
+            margin-bottom: 15px;
+        }
+
+        .sub-sede:last-child {
+            margin-bottom: 0;
+        }
+
+        .sub-sede-title {
+            color: var(--ge-rojo-marca);
+            font-weight: 800;
+            margin-bottom: 10px;
+            display: block;
         }
 
         .footer {
@@ -466,18 +633,23 @@
             .sello-original { right: 50%; transform: translateX(50%); top: -15px; }
             .top-banner h2 { font-size: 1.5em; }
             
-            /* Ajustes móviles para el botón de llamada */
+            .cta-buttons-wrapper { flex-direction: column; }
             .cta-box-message { 
-                flex-direction: column; /* Icono arriba, texto abajo */
+                width: 100%;
+                flex-direction: column; 
                 gap: 10px;
                 padding: 20px 30px;
                 border-radius: 25px;
             }
-            .call-icon { font-size: 2.5em; }
+            .call-icon, .wpp-icon { font-size: 2.5em; }
             .call-text-block { text-align: center; }
             .call-action-text { font-size: 1em; }
             .call-number { font-size: 1.6em; }
             .seccion-titulo { font-size: 1.8em; }
+
+            .sede-summary { padding: 15px 20px; font-size: 1.1em; }
+            .sede-content { padding: 0 20px 20px 20px; }
+            .sede-summary::before { display: none; }
         }
     </style>
 </head>
@@ -543,15 +715,165 @@
         <div class="cta-container">
             <h2 class="cta-title">¿Listo para transformar tu futuro?</h2>
             
-            <a href="tel:6017423399" class="cta-box-message">
-                <span class="call-icon">📞</span>
-                <span class="call-text-block">
-                    <span class="call-action-text">LLÁMANOS AHORA AL</span>
-                    <span class="call-number">601 742 3399</span>
-                    <span class="call-subtext">y únete a nuestra gran familia <span class="marca-small">GANO EXCEL</span></span>
-                </span>
-            </a>
+            <div class="cta-buttons-wrapper">
+                <a href="tel:6017423399" class="cta-box-message">
+                    <span class="call-icon">📞</span>
+                    <span class="call-text-block">
+                        <span class="call-action-text">LLÁMANOS AHORA AL</span>
+                        <span class="call-number">601 742 3399</span>
+                        <span class="call-subtext">y únete a la familia <span class="marca-small">GANO EXCEL</span></span>
+                    </span>
+                </a>
+
+                <a href="https://wa.me/573112550878?text=Hola,%20estoy%20interesado%20en%20la%20oportunidad%20de%20Gano%20Excel%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n" target="_blank" class="cta-box-message wpp-btn">
+                    <span class="wpp-icon">💬</span>
+                    <span class="call-text-block">
+                        <span class="call-action-text">ESCRÍBENOS POR</span>
+                        <span class="call-number" style="color: #25D366; text-shadow: 0 2px 10px rgba(37, 211, 102, 0.4);">WHATSAPP</span>
+                        <span class="call-subtext">Asesoría personalizada al instante</span>
+                    </span>
+                </a>
+            </div>
         </div>
+
+        <div class="sedes-container">
+            <h2 class="seccion-titulo">Visítanos en nuestras sedes oficiales</h2>
+            <p class="sedes-subtitle">Selecciona una ciudad para conocer la ubicación y horarios de atención</p>
+            
+            <div class="sedes-accordion">
+                
+                <details class="sede-item" open>
+                    <summary class="sede-summary"><span class="sede-summary-text">Bogotá</span></summary>
+                    <div class="sede-content" style="padding-top: 15px;">
+                        
+                        <div class="sub-sede">
+                            <span class="sub-sede-title">Sede Cedritos (Oficina Principal)</span>
+                            <div class="sede-info-line">
+                                <span class="sede-info-icon">📍</span>
+                                <span>Av. Cra. 19 Nº 134A-06 Barrio Contador</span>
+                            </div>
+                            <div class="sede-info-line">
+                                <span class="sede-info-icon">🕒</span>
+                                <span><strong>Horario:</strong> Lunes a Viernes de 09:00 a. m. – 08:00 p. m.<br>Sábados de 09:00 a. m. – 05:00 p. m.</span>
+                            </div>
+                        </div>
+
+                        <div class="sub-sede">
+                            <span class="sub-sede-title">Sede Santa Isabel</span>
+                            <div class="sede-info-line">
+                                <span class="sede-info-icon">📍</span>
+                                <span>Cra. 30 Nº 1-20 Barrio Santa Isabel</span>
+                            </div>
+                            <div class="sede-info-line">
+                                <span class="sede-info-icon">🕒</span>
+                                <span><strong>Horario:</strong> Lunes a Viernes de 09:00 a. m. – 06:00 p. m.<br>Sábados de 09:00 a. m. – 05:00 p. m.</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </details>
+
+                <details class="sede-item">
+                    <summary class="sede-summary"><span class="sede-summary-text">Barranquilla</span></summary>
+                    <div class="sede-content">
+                        <div class="sede-info-line">
+                            <span class="sede-info-icon">📍</span>
+                            <span>Cra.43 Nº 79-136 Barrio Porvenir</span>
+                        </div>
+                        <div class="sede-info-line">
+                            <span class="sede-info-icon">🕒</span>
+                            <span><strong>Horario:</strong> Lunes a Viernes de 10:00 a. m. – 08:00 p. m.<br>Sábados de 11:00 a. m. – 05:00 p. m.</span>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="sede-item">
+                    <summary class="sede-summary"><span class="sede-summary-text">Bucaramanga</span></summary>
+                    <div class="sede-content">
+                        <div class="sede-info-line">
+                            <span class="sede-info-icon">📍</span>
+                            <span>Cl. 51 Nº 31-98 Barrio Cabecera del Llano</span>
+                        </div>
+                        <div class="sede-info-line">
+                            <span class="sede-info-icon">🕒</span>
+                            <span><strong>Horario:</strong> Lunes a Viernes de 10:00 a. m. – 08:00 p. m.<br>Sábados de 11:00 a. m. – 05:00 p. m.</span>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="sede-item">
+                    <summary class="sede-summary"><span class="sede-summary-text">Cali</span></summary>
+                    <div class="sede-content">
+                        <div class="sede-info-line">
+                            <span class="sede-info-icon">📍</span>
+                            <span>Cra. 42 Nº 5B-65 Barrio Tequendama</span>
+                        </div>
+                        <div class="sede-info-line">
+                            <span class="sede-info-icon">🕒</span>
+                            <span><strong>Horario:</strong> Lunes a Viernes de 10:00 a. m. – 08:00 p. m.<br>Sábados de 11:00 a. m. – 05:00 p. m.</span>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="sede-item">
+                    <summary class="sede-summary"><span class="sede-summary-text">Cúcuta</span></summary>
+                    <div class="sede-content">
+                        <div class="sede-info-line">
+                            <span class="sede-info-icon">📍</span>
+                            <span>Av. 0 Nº 13-167 Barrio Caobos</span>
+                        </div>
+                        <div class="sede-info-line">
+                            <span class="sede-info-icon">🕒</span>
+                            <span><strong>Horario:</strong> Lunes a Viernes de 10:00 a. m. – 07:00 p. m.<br>Sábados de 10:00 a. m. – 05:00 p. m.</span>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="sede-item">
+                    <summary class="sede-summary"><span class="sede-summary-text">Medellín</span></summary>
+                    <div class="sede-content">
+                        <div class="sede-info-line">
+                            <span class="sede-info-icon">📍</span>
+                            <span>Cra. 43F Nº 17-489 Barrio El Poblado</span>
+                        </div>
+                        <div class="sede-info-line">
+                            <span class="sede-info-icon">🕒</span>
+                            <span><strong>Horario:</strong> Lunes a Viernes de 10:00 a. m. – 08:00 p. m.<br>Sábados de 11:00 a. m. – 05:00 p. m.</span>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="sede-item">
+                    <summary class="sede-summary"><span class="sede-summary-text">Pereira</span></summary>
+                    <div class="sede-content">
+                        <div class="sede-info-line">
+                            <span class="sede-info-icon">📍</span>
+                            <span>Cra 15 Nº 10-32 Barrio Los Alpes - Local 2</span>
+                        </div>
+                        <div class="sede-info-line">
+                            <span class="sede-info-icon">🕒</span>
+                            <span><strong>Horario:</strong> Lunes a Viernes de 10:00 a. m. – 08:00 p. m.<br>Sábados de 11:00 a. m. – 05:00 p. m.</span>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="sede-item">
+                    <summary class="sede-summary"><span class="sede-summary-text">Villavicencio</span></summary>
+                    <div class="sede-content">
+                        <div class="sede-info-line">
+                            <span class="sede-info-icon">📍</span>
+                            <span>Av. 40 No. 27-37, Barrio 7 de Agosto</span>
+                        </div>
+                        <div class="sede-info-line">
+                            <span class="sede-info-icon">🕒</span>
+                            <span><strong>Horario:</strong> Lunes a Viernes de 09:00 a. m. – 06:00 p. m.<br>Sábados de 09:00 a. m. – 05:00 p. m.</span>
+                        </div>
+                    </div>
+                </details>
+
+            </div>
+        </div>
+
     </div>
 
     <footer class="footer">
@@ -559,5 +881,17 @@
         <p>&copy; 2026 - Todos los derechos reservados. El éxito depende del esfuerzo y dedicación de cada Afiliado.</p>
     </footer>
 
+    <script>
+        const sedes = document.querySelectorAll('.sede-item');
+        sedes.forEach((sedeActiva) => {
+            sedeActiva.addEventListener('click', () => {
+                sedes.forEach((sede) => {
+                    if (sede !== sedeActiva) {
+                        sede.removeAttribute('open');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
