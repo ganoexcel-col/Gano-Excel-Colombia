@@ -62,15 +62,26 @@
             100% { background-position: 0% 50%; }
         }
 
+        /* --- ANIMACIONES AVANZADAS PARA EL CTA --- */
+        
+        /* 1. Entrada suave (Aparecer subiendo) */
         @keyframes aparecerSubiendo {
             from { opacity: 0; transform: translateY(50px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* 2. Brillo de seda continuo en el fondo */
         @keyframes brilloFondoCta {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
+        }
+
+        /* 3. Pulso suave del borde dorado */
+        @keyframes pulsoBordeOro {
+            0% { border-color: var(--ge-oro); box-shadow: var(--sombra-fuerte); }
+            50% { border-color: var(--ge-oro-brillo); box-shadow: 0 20px 50px rgba(212, 175, 55, 0.4); }
+            100% { border-color: var(--ge-oro); box-shadow: var(--sombra-fuerte); }
         }
 
         .header-corp {
@@ -815,17 +826,7 @@
         <h2 class="seccion-titulo">Elige la forma inteligente de unirte</h2>
 
         <div class="comparative-section">
-            <div class="panel-corp panel-replica">
-                <span class="icon-panel">📦</span>
-                <h3>Consumidor Final</h3>
-                <ul class="benefits-list">
-                    <li><div><strong>PRECIO PÚBLICO:</strong> Compra al valor comercial estándar sin descuentos especiales.</div></li>
-                    <li><div><strong>SEGURIDAD DIRECTA:</strong> Recibes respaldo y garantía de fábrica en tu compra.</div></li>
-                    <li><div><strong>USO PERSONAL:</strong> Productos ideales para tu propio bienestar y consumo individual.</div></li>
-                    <li><div><strong>SIN GENERACIÓN DE INGRESOS:</strong> Tu compra no genera comisiones ni residuales de red.</div></li>
-                </ul>
-            </div>
-
+            
             <div class="panel-corp panel-socio">
                 <div class="sello-original">⭐ Tu Mejor Opción</div>
                 
@@ -838,6 +839,18 @@
                     <li><div><strong style="color: var(--ge-blanco);">LIBERTAD FINANCIERA:</strong> Participación activa en las 12 formas exclusivas de ganar comisiones y residuales.</div></li>
                 </ul>
             </div>
+
+            <div class="panel-corp panel-replica">
+                <span class="icon-panel">📦</span>
+                <h3>Consumidor Final</h3>
+                <ul class="benefits-list">
+                    <li><div><strong>PRECIO PÚBLICO:</strong> Compra al valor comercial estándar sin descuentos especiales.</div></li>
+                    <li><div><strong>SEGURIDAD DIRECTA:</strong> Recibes respaldo y garantía de fábrica en tu compra.</div></li>
+                    <li><div><strong>USO PERSONAL:</strong> Productos ideales para tu propio bienestar y consumo individual.</div></li>
+                    <li><div><strong>SIN GENERACIÓN DE INGRESOS:</strong> Tu compra no genera comisiones ni residuales de red.</div></li>
+                </ul>
+            </div>
+
         </div>
 
         <div class="productos-section">
