@@ -33,7 +33,6 @@
             color: var(--ge-gris-texto);
             line-height: 1.6;
             overflow-x: hidden;
-            /* Padding inferior para que el botón de WA no tape el footer en móviles */
             padding-bottom: 60px; 
         }
 
@@ -63,21 +62,17 @@
         }
 
         /* --- ANIMACIONES AVANZADAS PARA EL CTA --- */
-        
-        /* 1. Entrada suave (Aparecer subiendo) */
         @keyframes aparecerSubiendo {
             from { opacity: 0; transform: translateY(50px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* 2. Brillo de seda continuo en el fondo */
         @keyframes brilloFondoCta {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        /* 3. Pulso suave del borde dorado */
         @keyframes pulsoBordeOro {
             0% { border-color: var(--ge-oro); box-shadow: var(--sombra-fuerte); }
             50% { border-color: var(--ge-oro-brillo); box-shadow: 0 20px 50px rgba(212, 175, 55, 0.4); }
@@ -156,13 +151,12 @@
             z-index: 5;
         }
 
-        /* --- Ajuste del Video para mejor UX --- */
         .video-wrapper {
             position: relative;
-            padding-bottom: 50%; /* Ligeramente menos alto */
+            padding-bottom: 50%; 
             height: 0;
             overflow: hidden;
-            max-width: 850px; /* Un poco más estrecho para no abrumar la pantalla */
+            max-width: 850px;
             margin: 0 auto 50px;
             border: 8px solid var(--ge-blanco);
             border-radius: 16px;
@@ -310,461 +304,62 @@
             font-size: 0.9em;
         }
 
-        /* --- SECCIÓN PRODUCTOS ELEGANTE Y CUADRADA --- */
-        .productos-section {
-            margin-bottom: 70px;
-        }
+        /* --- SECCIÓN PRODUCTOS --- */
+        .productos-section { margin-bottom: 70px; }
+        .categoria-bloque { margin-bottom: 60px; background: #ffffff; padding: 40px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+        .categoria-titulo { color: var(--ge-azul-institucional); font-size: 1.8em; margin-top: 0; margin-bottom: 40px; text-align: center; text-transform: uppercase; position: relative; padding-bottom: 15px; }
+        .categoria-titulo::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background-color: var(--ge-oro); border-radius: 2px; }
+        .productos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; }
+        .producto-card { background-color: #fafbfc; border-radius: 12px; padding: 20px; text-align: center; transition: all 0.3s ease; border: 1px solid var(--ge-gris-borde); display: flex; flex-direction: column; align-items: center; }
+        .producto-card:hover { transform: translateY(-8px); box-shadow: var(--sombra-suave); background-color: #ffffff; border-color: var(--ge-oro); }
+        .img-wrap { width: 100%; height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+        .img-wrap img { max-width: 100%; max-height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+        .prod-title { color: var(--ge-azul-institucional); font-size: 1.1em; margin: 0 0 8px 0; font-weight: 800; }
+        .prod-desc { color: #666666; font-size: 0.9em; margin: 0; line-height: 1.4; }
 
-        .categoria-bloque {
-            margin-bottom: 60px;
-            background: #ffffff; /* Un pequeño bloque blanco para agrupar */
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-        }
+        .warning-section { background-color: var(--ge-blanco); border-top: 5px solid #f59e0b; padding: 40px; border-radius: 12px; margin: 0 auto 60px; max-width: 800px; display: flex; align-items: center; gap: 30px; box-shadow: var(--sombra-suave); transition: transform 0.3s ease; }
+        .warning-section:hover { transform: scale(1.02); box-shadow: var(--sombra-fuerte); }
+        .warning-icon { font-size: 3.5em; color: #f59e0b; }
 
-        .categoria-titulo {
-            color: var(--ge-azul-institucional);
-            font-size: 1.8em;
-            margin-top: 0;
-            margin-bottom: 40px;
-            text-align: center;
-            text-transform: uppercase;
-            position: relative;
-            padding-bottom: 15px;
-        }
+        /* --- CTA Y DISCLAIMER --- */
+        .cta-container { text-align: center; margin-bottom: 40px; padding: 50px 20px; background: linear-gradient(to right, #f8f9fa, #ffffff, #f8f9fa); border-radius: 20px; box-shadow: inset 0 0 20px rgba(0,0,0,0.02); opacity: 0; animation: aparecerSubiendo 1.2s ease-out 0.5s forwards; }
+        .cta-title { font-size: 1.8em; color: var(--ge-azul-institucional); margin-bottom: 30px; font-weight: 800; }
+        .cta-buttons-wrapper { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; width: 100%; max-width: 950px; margin: 0 auto; }
+        .cta-box-message { flex: 1; min-width: 300px; display: inline-flex; align-items: center; justify-content: center; gap: 20px; background: linear-gradient(135deg, var(--ge-azul-institucional) 0%, var(--ge-azul-profundo) 50%, var(--ge-azul-institucional) 100%); background-size: 200% auto; color: var(--ge-blanco); padding: 25px 60px; border-radius: 50px; border: 3px solid var(--ge-oro); box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3); animation: brilloFondoCta 6s linear infinite, pulsoBordeOro 3s infinite; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; text-decoration: none; }
+        .cta-box-message:hover { transform: translateY(-5px) scale(1.03); box-shadow: 0 20px 40px rgba(212, 175, 55, 0.6); animation-play-state: paused; }
+        
+        .disclaimer-text { margin-top: 25px; font-size: 0.85em; color: #777; line-height: 1.4; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .disclaimer-text a { color: var(--ge-azul-institucional); text-decoration: underline; font-weight: 600; }
 
-        .categoria-titulo::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--ge-oro);
-            border-radius: 2px;
-        }
+        .call-icon { font-size: 3em; color: var(--ge-oro-brillo); }
+        .call-text-block { text-align: left; display: flex; flex-direction: column; line-height: 1.2; }
+        .call-action-text { font-size: 1.2em; font-weight: 800; text-transform: uppercase; color: var(--ge-blanco); }
+        .call-number { font-size: 2.2em; font-weight: 900; color: var(--ge-oro-brillo); }
+        .call-subtext { font-size: 0.9em; color: #b0c4de; font-weight: 600; margin-top: 5px; }
 
-        .productos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-        }
+        .wpp-btn { border: 3px solid #25D366; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.2); animation: brilloFondoCta 6s linear infinite, pulsoBordeWpp 3s infinite; }
+        .wpp-icon { font-size: 3em; color: #25D366; }
+        @keyframes pulsoBordeWpp { 0% { border-color: #25D366; } 50% { border-color: #4dfa8a; } 100% { border-color: #25D366; } }
 
-        .producto-card {
-            background-color: #fafbfc;
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid var(--ge-gris-borde);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+        .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 35px; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3); z-index: 100; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s ease; animation: pulse-wa 2s infinite; }
+        @keyframes pulse-wa { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
 
-        .producto-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--sombra-suave);
-            background-color: #ffffff;
-            border-color: var(--ge-oro);
-        }
-
-        .img-wrap {
-            width: 100%;
-            height: 180px;
-            background: transparent;
-            border-radius: 12px; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            transition: transform 0.4s ease;
-        }
-
-        .producto-card:hover .img-wrap {
-            transform: scale(1.08);
-        }
-
-        .img-wrap img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            mix-blend-mode: multiply;
-        }
-
-        .prod-title {
-            color: var(--ge-azul-institucional);
-            font-size: 1.1em;
-            margin: 0 0 8px 0;
-            font-weight: 800;
-        }
-
-        .prod-desc {
-            color: #666666;
-            font-size: 0.9em;
-            margin: 0;
-            line-height: 1.4;
-        }
-
-        /* --- SELLO DE GARANTÍA REFINADO --- */
-        .warning-section {
-            background-color: var(--ge-blanco);
-            border-top: 5px solid #f59e0b; 
-            padding: 40px;
-            border-radius: 12px;
-            margin: 0 auto 60px;
-            max-width: 800px;
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            box-shadow: var(--sombra-suave);
-            transition: transform 0.3s ease;
-        }
-
-        .warning-section:hover {
-            transform: scale(1.02);
-            box-shadow: var(--sombra-fuerte);
-        }
-
-        .warning-icon {
-            font-size: 3.5em;
-            color: #f59e0b; 
-        }
-
-        /* --- BLOQUE CTA OPTIMIZADO PARA LLAMADA Y WHATSAPP --- */
-        .cta-container {
-            text-align: center;
-            margin-bottom: 80px;
-            padding: 50px 20px;
-            background: linear-gradient(to right, #f8f9fa, #ffffff, #f8f9fa);
-            border-radius: 20px;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.02);
-            
-            opacity: 0;
-            animation: aparecerSubiendo 1.2s ease-out 0.5s forwards;
-        }
-
-        .cta-title {
-            font-size: 1.8em;
-            color: var(--ge-azul-institucional);
-            margin-bottom: 30px;
-            font-weight: 800;
-        }
-
-        .cta-buttons-wrapper {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-            width: 100%;
-            max-width: 950px;
-            margin: 0 auto;
-        }
-
-        .cta-box-message {
-            flex: 1;
-            min-width: 300px;
-            display: inline-flex; 
-            align-items: center;
-            justify-content: center;
-            gap: 15px; 
-            
-            background: linear-gradient(135deg, 
-                var(--ge-azul-institucional) 0%, 
-                var(--ge-azul-profundo) 50%, 
-                var(--ge-azul-institucional) 100%
-            );
-            background-size: 200% auto;
-            
-            color: var(--ge-blanco);
-            padding: 25px 30px; 
-            border-radius: 50px; 
-            
-            border: 3px solid var(--ge-oro);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
-            
-            animation: 
-                brilloFondoCta 6s linear infinite, 
-                pulsoBordeOro 3s infinite;
-                
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .cta-box-message:hover {
-            transform: translateY(-5px) scale(1.03); 
-            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.6); 
-            animation-play-state: paused;
-        }
-
-        .call-icon {
-            font-size: 2.8em;
-            color: var(--ge-oro-brillo);
-            text-shadow: 0 0 15px rgba(250, 221, 112, 0.5);
-        }
-
-        .call-text-block {
-            text-align: left;
-            display: flex;
-            flex-direction: column;
-            line-height: 1.2;
-        }
-
-        .call-action-text {
-            font-size: 1.1em;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--ge-blanco);
-        }
-
-        .call-number {
-            font-size: 1.8em;
-            font-weight: 900;
-            color: var(--ge-oro-brillo);
-            letter-spacing: 1px;
-            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.4);
-        }
-
-        .call-subtext {
-            font-size: 0.85em;
-            color: #b0c4de;
-            font-weight: 600;
-            margin-top: 5px;
-        }
-
-        .call-subtext span.marca-small {
-            color: var(--ge-blanco);
-            font-weight: 800;
-        }
-
-        /* --- BOTÓN WHATSAPP ESPECÍFICO --- */
-        .wpp-btn {
-            border: 3px solid #25D366;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.2);
-            animation: brilloFondoCta 6s linear infinite, pulsoBordeWpp 3s infinite;
-        }
-
-        .wpp-btn:hover {
-            box-shadow: 0 20px 40px rgba(37, 211, 102, 0.5); 
-        }
-
-        .wpp-icon {
-            font-size: 3em;
-            color: #25D366;
-            text-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
-        }
-
-        @keyframes pulsoBordeWpp {
-            0% { border-color: #25D366; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.2); }
-            50% { border-color: #4dfa8a; box-shadow: 0 20px 50px rgba(37, 211, 102, 0.4); }
-            100% { border-color: #25D366; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.2); }
-        }
-
-        .cta-container::before {
-            content: '🤝';
-            display: block;
-            font-size: 2.5em;
-            margin-bottom: -15px;
-            position: relative;
-            z-index: 6;
-            background-color: var(--ge-gris-fondo);
-            width: 60px;
-            margin-left: auto;
-            margin-right: auto;
-            border-radius: 50%;
-        }
-
-        /* --- NUEVO: BOTÓN FLOTANTE WHATSAPP --- */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 35px;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: transform 0.3s ease;
-            animation: pulse-wa 2s infinite;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-
-        @keyframes pulse-wa {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-
-        /* --- NUEVA SECCIÓN DE SEDES MODERNA (ACORDEÓN) --- */
-        .sedes-container {
-            margin-bottom: 80px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .sedes-subtitle {
-            text-align: center;
-            color: #666;
-            margin-top: -30px;
-            margin-bottom: 40px;
-            font-size: 1.1em;
-        }
-
-        .sedes-accordion {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .sede-item {
-            background-color: var(--ge-blanco);
-            border-radius: 12px;
-            box-shadow: var(--sombra-suave);
-            border: 2px solid transparent;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .sede-item:hover {
-            box-shadow: var(--sombra-fuerte);
-            border-color: rgba(212, 175, 55, 0.4);
-        }
-
-        .sede-item[open] {
-            border-color: var(--ge-oro);
-            box-shadow: var(--sombra-fuerte);
-        }
-
-        .sede-summary {
-            padding: 20px 25px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.3em;
-            font-weight: 800;
-            color: var(--ge-azul-institucional);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            list-style: none;
-            user-select: none;
-        }
-
-        .sede-summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .sede-summary::before {
-            content: '🏢';
-            margin-right: 15px;
-            font-size: 1.2em;
-            filter: grayscale(0.5);
-            transition: all 0.3s ease;
-        }
-
-        .sede-item[open] .sede-summary::before {
-            filter: grayscale(0);
-            transform: scale(1.1);
-        }
-
-        .sede-summary-text {
-            flex-grow: 1;
-        }
-
-        .sede-summary::after {
-            content: '+';
-            font-size: 1.5em;
-            font-weight: 400;
-            color: var(--ge-oro);
-            background-color: var(--ge-gris-fondo);
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        .sede-item[open] .sede-summary::after {
-            content: '−';
-            transform: rotate(180deg);
-            background-color: var(--ge-oro);
-            color: var(--ge-blanco);
-        }
-
-        .sede-content {
-            padding: 0 25px 25px 65px;
-            color: var(--ge-gris-texto);
-            font-size: 1.05em;
-            line-height: 1.6;
-            border-top: 1px solid var(--ge-gris-borde);
-            margin-top: 5px;
-            padding-top: 20px;
-        }
-
-        .sede-info-line {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
-        .sede-info-icon {
-            font-size: 1.2em;
-            margin-top: 2px;
-        }
-
-        .sede-content strong {
-            color: var(--ge-azul-institucional);
-        }
-
-        .sub-sede {
-            background-color: #f8fbff;
-            padding: 15px 20px;
-            border-radius: 8px;
-            border-left: 3px solid var(--ge-azul-institucional);
-            margin-bottom: 15px;
-        }
-
-        .sub-sede:last-child {
-            margin-bottom: 0;
-        }
-
-        .sub-sede-title {
-            color: var(--ge-rojo-marca);
-            font-weight: 800;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .footer {
-            background-color: var(--ge-azul-profundo);
-            padding: 40px 20px;
-            font-size: 0.95em;
-            color: #8fa0bd;
-            text-align: center;
-            border-top: 3px solid var(--ge-oro);
-        }
-
-        .footer strong {
-            color: var(--ge-blanco);
-        }
+        /* --- SEDES --- */
+        .sedes-container { margin-bottom: 80px; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .sedes-subtitle { text-align: center; color: #666; margin-top: -30px; margin-bottom: 40px; font-size: 1.1em; }
+        .sedes-accordion { display: flex; flex-direction: column; gap: 15px; }
+        .sede-item { background-color: var(--ge-blanco); border-radius: 12px; box-shadow: var(--sombra-suave); border: 2px solid transparent; overflow: hidden; transition: all 0.3s ease; }
+        .sede-item:hover { box-shadow: var(--sombra-fuerte); border-color: rgba(212, 175, 55, 0.4); }
+        .sede-item[open] { border-color: var(--ge-oro); box-shadow: var(--sombra-fuerte); }
+        .sede-summary { padding: 20px 25px; font-family: 'Montserrat', sans-serif; font-size: 1.3em; font-weight: 800; color: var(--ge-azul-institucional); cursor: pointer; display: flex; justify-content: space-between; align-items: center; list-style: none; user-select: none; }
+        .sede-summary::after { content: '+'; font-size: 1.5em; color: var(--ge-oro); background-color: var(--ge-gris-fondo); width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .sede-item[open] .sede-summary::after { content: '−'; transform: rotate(180deg); background-color: var(--ge-oro); color: var(--ge-blanco); }
+        .sede-content { padding: 0 25px 25px 65px; color: var(--ge-gris-texto); font-size: 1.05em; line-height: 1.6; border-top: 1px solid var(--ge-gris-borde); margin-top: 5px; padding-top: 20px; }
+        .sub-sede { background-color: #f8fbff; padding: 15px 20px; border-radius: 8px; border-left: 3px solid var(--ge-azul-institucional); margin-bottom: 15px; }
+        .sub-sede-title { color: var(--ge-rojo-marca); font-weight: 800; margin-bottom: 10px; display: block; }
+        
+        .footer { background-color: var(--ge-azul-profundo); padding: 40px 20px; font-size: 0.95em; color: #8fa0bd; text-align: center; border-top: 3px solid var(--ge-oro); }
+        .footer strong { color: var(--ge-blanco); }
 
         @media (max-width: 900px) {
             .comparative-section { flex-direction: column; }
@@ -772,31 +367,10 @@
             .panel-socio:hover { transform: translateY(-10px); }
             .sello-original { right: 50%; transform: translateX(50%); top: -15px; }
             .top-banner h2 { font-size: 1.5em; }
-            
-            .categoria-bloque { padding: 20px; }
-            
-            .warning-section { flex-direction: column; text-align: center; padding: 25px 20px; gap: 15px; }
-            .warning-icon { font-size: 2.5em; margin-bottom: -10px; }
-
-            .cta-buttons-wrapper { flex-direction: column; }
-            .cta-box-message { 
-                width: 100%;
-                flex-direction: column; 
-                gap: 10px;
-                padding: 20px 30px;
-                border-radius: 25px;
-            }
-            .call-icon, .wpp-icon { font-size: 2.5em; }
-            .call-text-block { text-align: center; }
-            .call-action-text { font-size: 1em; }
-            .call-number { font-size: 1.6em; }
+            .cta-box-message { flex-direction: column; padding: 20px 30px; }
             .seccion-titulo { font-size: 1.8em; }
-
             .sede-summary { padding: 15px 20px; font-size: 1.1em; }
             .sede-content { padding: 0 20px 20px 20px; }
-            .sede-summary::before { display: none; }
-            
-            .whatsapp-float { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 30px; }
         }
     </style>
 </head>
@@ -826,10 +400,8 @@
         <h2 class="seccion-titulo">Elige la forma inteligente de unirte</h2>
 
         <div class="comparative-section">
-            
             <div class="panel-corp panel-socio">
                 <div class="sello-original">⭐ Tu Mejor Opción</div>
-                
                 <span class="icon-panel">🚀</span>
                 <h3>Afiliado</h3>
                 <ul class="benefits-list">
@@ -850,12 +422,10 @@
                     <li><div><strong>SIN GENERACIÓN DE INGRESOS:</strong> Tu compra no genera comisiones ni residuales de red.</div></li>
                 </ul>
             </div>
-
         </div>
 
         <div class="productos-section">
             <h2 class="seccion-titulo">Conoce Nuestros Productos</h2>
-
             <div class="categoria-bloque">
                 <h3 class="categoria-titulo">☕ Bebidas</h3>
                 <div class="productos-grid">
@@ -906,7 +476,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="categoria-bloque">
                 <h3 class="categoria-titulo">💊 Cápsulas</h3>
                 <div class="productos-grid">
@@ -927,7 +496,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="categoria-bloque">
                 <h3 class="categoria-titulo">🧴 Cuidado Personal</h3>
                 <div class="productos-grid">
@@ -973,7 +541,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="categoria-bloque">
                 <h3 class="categoria-titulo">☕ Línea Premium Luvoco</h3>
                 <div class="productos-grid">
@@ -999,8 +566,8 @@
                     </div>
                 </div>
             </div>
-
         </div>
+        
         <div class="warning-section">
             <div class="warning-icon">🥇</div>
             <div>
@@ -1031,6 +598,8 @@
                     </span>
                 </a>
             </div>
+
+            <p class="disclaimer-text">Al hacer clic en estos botónes, aceptas los Términos y Condiciones de WhatsApp y te haces responsable de la información que compartes a través de este canal. Asimismo, confirmas que has leído y aceptas nuestra <a href="https://www.ganoexcel.com.co" target="_blank">Política de Privacidad y Tratamiento de Datos Personales de Gano Excel</a>.</p>
         </div>
 
         <div class="sedes-container">
@@ -1038,11 +607,9 @@
             <p class="sedes-subtitle">Selecciona una ciudad para conocer la ubicación y horarios de atención</p>
             
             <div class="sedes-accordion">
-                
                 <details class="sede-item" open>
                     <summary class="sede-summary"><span class="sede-summary-text">Bogotá</span></summary>
                     <div class="sede-content" style="padding-top: 15px;">
-                        
                         <div class="sub-sede">
                             <span class="sub-sede-title">Sede Cedritos (Oficina Principal)</span>
                             <div class="sede-info-line">
@@ -1054,7 +621,6 @@
                                 <span><strong>Horario:</strong> Lunes a Viernes de 09:00 a. m. – 08:00 p. m.<br>Sábados de 09:00 a. m. – 05:00 p. m.</span>
                             </div>
                         </div>
-
                         <div class="sub-sede">
                             <span class="sub-sede-title">Sede Santa Isabel</span>
                             <div class="sede-info-line">
@@ -1066,7 +632,6 @@
                                 <span><strong>Horario:</strong> Lunes a Viernes de 09:00 a. m. – 06:00 p. m.<br>Sábados de 09:00 a. m. – 05:00 p. m.</span>
                             </div>
                         </div>
-
                     </div>
                 </details>
 
@@ -1167,10 +732,8 @@
                         </div>
                     </div>
                 </details>
-
             </div>
         </div>
-
     </div>
 
     <footer class="footer">
