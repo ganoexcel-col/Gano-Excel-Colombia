@@ -21,26 +21,30 @@
             justify-content: center;
         }
         
+        /* Base para portátiles (13" a 15") */
         .main-wrapper {
             width: 100%;
-            padding: 1.5rem 1rem; /* Reducido para portátiles */
-            max-width: 1150px; /* Ajuste ideal para portátiles de 13" a 15" */
+            padding: 1.5rem 1rem;
+            max-width: 1150px; 
+            margin: 0 auto;
+            transition: max-width 0.4s ease; /* Transición suave al cambiar de pantalla */
         }
 
         /* --- LOGO Y PATROCINADOR GLOBAL --- */
         .global-brand-header {
             text-align: center;
-            margin-bottom: 1.5rem; /* Margen reducido */
+            margin-bottom: 1.5rem;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
         .global-brand-header img {
-            height: 100px; /* Ajustado para que no consuma tanta altura */
+            height: 100px; 
             object-fit: contain;
             filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05));
             margin-bottom: 1rem;
+            transition: all 0.3s ease;
         }
 
         .global-sponsor-badge {
@@ -48,7 +52,7 @@
             align-items: center;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            padding: 0.6rem 1.5rem; /* Más compacto */
+            padding: 0.6rem 1.5rem;
             border-radius: 50px;
             color: #334155;
             border: 1px solid rgba(255, 255, 255, 0.8);
@@ -56,6 +60,7 @@
             gap: 15px;
             flex-wrap: wrap;
             justify-content: center;
+            transition: all 0.3s ease;
         }
 
         .global-sponsor-badge .sponsor-name { font-weight: 700; font-size: 1rem; color: #0f172a; line-height: 1.2; }
@@ -85,38 +90,40 @@
         }
 
         .left-panel {
-            padding: 2rem; /* Padding reducido */
+            padding: 2rem;
             background: #ffffff;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            transition: padding 0.3s ease;
         }
 
         .right-panel {
-            padding: 2rem; /* Padding reducido */
+            padding: 2rem;
             background: #f8fafc;
             border-left: 1px solid #e2e8f0;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            transition: padding 0.3s ease;
         }
 
         /* --- TEXTOS IZQUIERDA --- */
-        .intro-section {
-            margin-bottom: 1.5rem;
-        }
+        .intro-section { margin-bottom: 1.5rem; }
 
         .action-title-main {
             color: #0f172a;
             font-weight: 800;
-            font-size: 2rem; /* Reducido para portátiles */
+            font-size: 2rem;
             margin-bottom: 0.3rem;
+            transition: font-size 0.3s ease;
         }
 
         .action-subtitle-main {
             color: #64748b;
             font-size: 1rem;
             margin-bottom: 0;
+            transition: font-size 0.3s ease;
         }
 
         /* --- VIDEO --- */
@@ -135,6 +142,7 @@
             font-weight: 800;
             font-size: 1.6rem;
             margin-bottom: 0.5rem;
+            transition: font-size 0.3s ease;
         }
 
         .action-subtitle {
@@ -142,20 +150,22 @@
             font-size: 0.95rem;
             line-height: 1.5;
             margin-bottom: 1.5rem;
+            transition: font-size 0.3s ease;
         }
 
         /* --- GRID DE PAÍSES --- */
         .country-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Optimizado para que quepan mejor en 2 columnas */
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             gap: 0.8rem;
+            transition: gap 0.3s ease;
         }
 
         .country-btn {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0.8rem 1rem; /* Botones un poco más compactos */
+            padding: 0.8rem 1rem;
             background: #ffffff;
             border: 1px solid #e2e8f0;
             border-radius: 14px;
@@ -167,11 +177,7 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
 
-        .country-btn .left-content {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        .country-btn .left-content { display: flex; align-items: center; gap: 10px; }
 
         .country-btn:hover {
             border-color: #D12626;
@@ -194,78 +200,66 @@
             justify-content: center;
             font-size: 1.1rem;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
         }
 
         /* --- FOOTER --- */
         .footer-links {
             text-align: center;
-            margin-top: 1.5rem; /* Reducido */
+            margin-top: 1.5rem;
             font-size: 0.9rem;
             color: #64748b;
         }
 
-        .footer-links a.corp-link {
-            color: #64748b;
-            text-decoration: underline;
-            transition: color 0.2s;
-            font-weight: 600;
-        }
-
+        .footer-links a.corp-link { color: #64748b; text-decoration: underline; transition: color 0.2s; font-weight: 600; }
         .footer-links a.corp-link:hover { color: #D12626; }
-
-        .footer-links .social-icons {
-            margin-top: 0.8rem !important;
-        }
-
-        .footer-links .social-icons a {
-            color: #64748b;
-            text-decoration: none;
-            margin: 0 8px;
-            transition: color 0.2s;
-        }
-        
+        .footer-links .social-icons { margin-top: 0.8rem !important; }
+        .footer-links .social-icons a { color: #64748b; text-decoration: none; margin: 0 8px; transition: color 0.2s; }
         .footer-links .social-icons a:hover { color: #D12626; }
 
         /* Estilos Internos del Modal */
-        .modal-content {
-            border-radius: 20px;
-            border: none;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
-        }
-        
-        .modal-header {
-            border-bottom: 1px solid #e2e8f0;
-            padding: 1.5rem 1.5rem 1rem;
-        }
-
-        .table-corp th {
-            color: #0f172a;
-            font-weight: 700;
-            width: 35%;
-        }
-        
+        .modal-content { border-radius: 20px; border: none; box-shadow: 0 25px 50px rgba(0,0,0,0.1); }
+        .modal-header { border-bottom: 1px solid #e2e8f0; padding: 1.5rem 1.5rem 1rem; }
+        .table-corp th { color: #0f172a; font-weight: 700; width: 35%; }
         .table-corp td { color: #475569; }
 
+        /* ======================================================== */
+        /* MAGIA RESPONSIVA: ESCALADO PARA MAC PRO Y MONITORES 4K   */
+        /* ======================================================== */
+        @media (min-width: 1440px) {
+            .main-wrapper { max-width: 1550px; padding: 3rem 1rem; }
+            .global-brand-header img { height: 135px; margin-bottom: 1.5rem; }
+            .global-sponsor-badge { padding: 1rem 2rem; border-radius: 50px; }
+            .global-sponsor-badge .sponsor-name { font-size: 1.15rem; }
+            .global-sponsor-badge .sponsor-rank { font-size: 0.9rem; }
+            .global-sponsor-badge .sponsor-contact { font-size: 1.1rem; padding-left: 20px; }
+            
+            .left-panel, .right-panel { padding: 3.5rem; }
+            
+            .action-title-main { font-size: 2.6rem; margin-bottom: 0.5rem; }
+            .action-subtitle-main { font-size: 1.25rem; }
+            
+            .action-title { font-size: 2.1rem; margin-bottom: 0.8rem; }
+            .action-subtitle { font-size: 1.1rem; margin-bottom: 2.5rem; }
+            
+            .country-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; }
+            .country-btn { padding: 1.2rem 1.5rem; font-size: 1.1rem; border-radius: 16px; }
+            .circle-icon { width: 42px; height: 42px; font-size: 1.3rem; }
+            
+            .footer-links { font-size: 1rem; margin-top: 2.5rem; }
+        }
+
+        /* ======================================================== */
+        /* MAGIA RESPONSIVA: AJUSTES PARA TABLETS Y MÓVILES         */
+        /* ======================================================== */
         @media (max-width: 991px) {
             .left-panel, .right-panel { padding: 2rem; }
             .right-panel { border-left: none; border-top: 1px solid #e2e8f0; }
         }
 
         @media (max-width: 768px) {
-            .global-sponsor-badge {
-                border-radius: 20px;
-                flex-direction: column;
-                text-align: center;
-                gap: 10px;
-            }
-            .global-sponsor-badge .sponsor-contact {
-                padding-left: 0;
-                border-left: none;
-                border-top: 1px solid #cbd5e1;
-                padding-top: 8px;
-                width: 100%;
-                justify-content: center;
-            }
+            .global-sponsor-badge { border-radius: 20px; flex-direction: column; text-align: center; gap: 10px; }
+            .global-sponsor-badge .sponsor-contact { padding-left: 0; border-left: none; border-top: 1px solid #cbd5e1; padding-top: 8px; width: 100%; justify-content: center; }
             .table-corp th { width: 100%; display: block; padding-bottom: 0; }
             .table-corp td { display: block; padding-top: 5px; padding-bottom: 15px; }
         }
