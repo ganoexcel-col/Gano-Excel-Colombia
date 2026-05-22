@@ -23,24 +23,24 @@
         
         .main-wrapper {
             width: 100%;
-            padding: 2rem 1rem;
-            max-width: 1400px; /* Ancho ampliado para hacer el video más grande */
+            padding: 1.5rem 1rem; /* Reducido para portátiles */
+            max-width: 1150px; /* Ajuste ideal para portátiles de 13" a 15" */
         }
 
         /* --- LOGO Y PATROCINADOR GLOBAL --- */
         .global-brand-header {
             text-align: center;
-            margin-bottom: 2.5rem;
+            margin-bottom: 1.5rem; /* Margen reducido */
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
         .global-brand-header img {
-            height: 140px; 
+            height: 100px; /* Ajustado para que no consuma tanta altura */
             object-fit: contain;
             filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05));
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .global-sponsor-badge {
@@ -48,7 +48,7 @@
             align-items: center;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            padding: 0.8rem 1.8rem;
+            padding: 0.6rem 1.5rem; /* Más compacto */
             border-radius: 50px;
             color: #334155;
             border: 1px solid rgba(255, 255, 255, 0.8);
@@ -58,8 +58,8 @@
             justify-content: center;
         }
 
-        .global-sponsor-badge .sponsor-name { font-weight: 700; font-size: 1.05rem; color: #0f172a; line-height: 1.2; }
-        .global-sponsor-badge .sponsor-rank { font-size: 0.85rem; color: #64748b; font-weight: 500; }
+        .global-sponsor-badge .sponsor-name { font-weight: 700; font-size: 1rem; color: #0f172a; line-height: 1.2; }
+        .global-sponsor-badge .sponsor-rank { font-size: 0.8rem; color: #64748b; font-weight: 500; }
         
         .global-sponsor-badge .sponsor-contact {
             color: #10b981;
@@ -70,13 +70,14 @@
             gap: 6px;
             padding-left: 15px;
             border-left: 1px solid #cbd5e1;
+            font-size: 0.95rem;
         }
 
         /* --- TARJETA PRINCIPAL --- */
         .premium-card {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
-            border-radius: 24px;
+            border-radius: 20px;
             box-shadow: 0 25px 50px rgba(44, 62, 80, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.6);
             overflow: hidden;
@@ -84,7 +85,7 @@
         }
 
         .left-panel {
-            padding: 2.5rem; /* Padding reducido para darle más espacio horizontal al video */
+            padding: 2rem; /* Padding reducido */
             background: #ffffff;
             display: flex;
             flex-direction: column;
@@ -92,7 +93,7 @@
         }
 
         .right-panel {
-            padding: 2.5rem;
+            padding: 2rem; /* Padding reducido */
             background: #f8fafc;
             border-left: 1px solid #e2e8f0;
             display: flex;
@@ -102,64 +103,65 @@
 
         /* --- TEXTOS IZQUIERDA --- */
         .intro-section {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .action-title-main {
             color: #0f172a;
             font-weight: 800;
-            font-size: 2.4rem; /* Ligeramente más grande para equilibrar */
-            margin-bottom: 0.5rem;
+            font-size: 2rem; /* Reducido para portátiles */
+            margin-bottom: 0.3rem;
         }
 
         .action-subtitle-main {
             color: #64748b;
-            font-size: 1.15rem;
+            font-size: 1rem;
             margin-bottom: 0;
         }
 
         /* --- VIDEO --- */
         .video-showcase {
-            border-radius: 16px;
+            border-radius: 14px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             border: 4px solid #f8fafc;
             background-color: #000;
-            width: 100%; /* Asegura que tome todo el ancho disponible */
+            width: 100%; 
         }
 
         /* --- TEXTOS DERECHA --- */
         .action-title {
             color: #1e293b;
             font-weight: 800;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             margin-bottom: 0.5rem;
         }
 
         .action-subtitle {
             color: #64748b;
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
         }
 
         /* --- GRID DE PAÍSES --- */
         .country-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Optimizado para que quepan mejor en 2 columnas */
+            gap: 0.8rem;
         }
 
         .country-btn {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 1rem 1.2rem;
+            padding: 0.8rem 1rem; /* Botones un poco más compactos */
             background: #ffffff;
             border: 1px solid #e2e8f0;
-            border-radius: 16px;
+            border-radius: 14px;
             color: #334155;
             font-weight: 600;
+            font-size: 0.95rem;
             text-decoration: none;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
@@ -168,49 +170,81 @@
         .country-btn .left-content {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .country-btn:hover {
             border-color: #D12626;
             background: #fffcfc;
-            box-shadow: 0 10px 25px rgba(209, 38, 38, 0.1);
-            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(209, 38, 38, 0.08);
+            transform: translateY(-3px);
             color: #D12626;
         }
 
         .country-btn i { color: #cbd5e1; transition: all 0.3s ease; }
-        .country-btn:hover i { color: #D12626; transform: translateX(5px); }
+        .country-btn:hover i { color: #D12626; transform: translateX(4px); }
 
         .circle-icon {
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             background-color: #f1f5f9;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
         /* --- FOOTER --- */
         .footer-links {
             text-align: center;
-            margin-top: 2rem;
-            font-size: 0.85rem;
+            margin-top: 1.5rem; /* Reducido */
+            font-size: 0.9rem;
             color: #64748b;
         }
 
-        .footer-links a {
+        .footer-links a.corp-link {
+            color: #64748b;
+            text-decoration: underline;
+            transition: color 0.2s;
+            font-weight: 600;
+        }
+
+        .footer-links a.corp-link:hover { color: #D12626; }
+
+        .footer-links .social-icons {
+            margin-top: 0.8rem !important;
+        }
+
+        .footer-links .social-icons a {
             color: #64748b;
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 8px;
             transition: color 0.2s;
-            font-weight: 500;
+        }
+        
+        .footer-links .social-icons a:hover { color: #D12626; }
+
+        /* Estilos Internos del Modal */
+        .modal-content {
+            border-radius: 20px;
+            border: none;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+        }
+        
+        .modal-header {
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1.5rem 1.5rem 1rem;
         }
 
-        .footer-links a:hover { color: #D12626; }
+        .table-corp th {
+            color: #0f172a;
+            font-weight: 700;
+            width: 35%;
+        }
+        
+        .table-corp td { color: #475569; }
 
         @media (max-width: 991px) {
             .left-panel, .right-panel { padding: 2rem; }
@@ -232,6 +266,8 @@
                 width: 100%;
                 justify-content: center;
             }
+            .table-corp th { width: 100%; display: block; padding-bottom: 0; }
+            .table-corp td { display: block; padding-top: 5px; padding-bottom: 15px; }
         }
     </style>
 </head>
@@ -342,11 +378,9 @@
         </div>
 
         <div class="footer-links">
-            <a data-bs-toggle="modal" data-bs-target="#ModalCorporateDetail" style="cursor:pointer;">Información Corporativa</a>
-            |
-            <a data-bs-toggle="modal" data-bs-target="#Código" style="cursor:pointer;">Código de Ética de ACOVEDI</a>
+            <a data-bs-toggle="modal" data-bs-target="#ModalCorporateDetail" style="cursor:pointer;" class="corp-link">Información Corporativa</a>
             
-            <div class="mt-3">
+            <div class="mt-4 social-icons">
                 <a target="_blank" href="https://www.facebook.com/Gano.Excel.col.oficial/"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
                 <a target="_blank" href="https://instagram.com/ganoexcelcolombia_oficial?igshid=YmMyMTA2M2Y="><i class="fa-brands fa-instagram fa-lg"></i></a>
                 <a target="_blank" href="https://youtube.com/user/ganoexcel2011"><i class="fa-brands fa-youtube fa-lg"></i></a>
@@ -354,5 +388,54 @@
         </div>
     </div>
 
+    <div class="modal fade" id="ModalCorporateDetail" tabindex="-1" aria-labelledby="ModalCorporateDetailLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                
+                <div class="modal-header">
+                    <h4 class="modal-title" id="ModalCorporateDetailLabel" style="color: #0f172a; font-weight: 800;">Información Corporativa</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                
+                <div class="modal-body" style="padding: 2rem;">
+                    
+                    <h5 style="color: #1e293b; font-weight: 700; margin-bottom: 1.5rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 0.8rem;">
+                        OFICINAS CORPORATIVAS
+                    </h5>
+                    
+                    <div class="table-responsive mb-4">
+                        <table class="table table-borderless table-corp align-middle">
+                            <tbody>
+                                <tr><th>BOGOTÁ</th><td>Av. Cra. 19 N° 134A-06 (oficina principal) Barrio Contador<br>Cra. 30 N° 1-20 Barrio Santa Isabel</td></tr>
+                                <tr><th>CALI</th><td>Cra. 42 N° 5B-65 Barrio Tequendama</td></tr>
+                                <tr><th>BUCARAMANGA</th><td>Cl. 51 N° 31-98 Barrio Cabecera del Llano</td></tr>
+                                <tr><th>MEDELLÍN</th><td>Cra. 43F N° 17-489 Barrio El Poblado</td></tr>
+                                <tr><th>CÚCUTA</th><td>Av. 0 N° 13-167 Barrio Caobos</td></tr>
+                                <tr><th>BARRANQUILLA</th><td>Cra.43 N° 79-136 Barrio Porvenir</td></tr>
+                                <tr><th>PEREIRA</th><td>Carrera 15 N° 10-32 local 2</td></tr>
+                                <tr><th>VILLAVICENCIO</th><td>Av. 40 N° 27-37 Barrio 7 de Agosto</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h5 style="color: #1e293b; font-weight: 700; margin-bottom: 1.5rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 0.8rem;">
+                        CONTACTO
+                    </h5>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-borderless table-corp align-middle">
+                            <tbody>
+                                <tr><th>Línea de Servicio al Cliente</th><td>01-8000-184-266 o (601) 7423399</td></tr>
+                                <tr><th>Email</th><td><a href="mailto:servicios@ganoexcel.com.co" style="color: #10b981; text-decoration: none; font-weight: 600;">servicios@ganoexcel.com.co</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
