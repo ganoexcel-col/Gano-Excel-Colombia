@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gano Excel - Bienestar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; color: #333; }
+        .text-primary { color: #0056b3; }
+        .bg-primary { background-color: #0056b3; }
+        .bg-light-blue { background-color: #f0f7ff; }
+        /* Fuente script/cursiva para la palabra "bienestar" */
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
+        .font-script { font-family: 'Caveat', cursive; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/05/logoweb.png" alt="Gano Excel Logo" class="h-16 w-auto">
+            </div>
+            
+            <nav class="hidden lg:flex space-x-6 text-sm font-medium text-gray-700">
+                <a href="#" class="text-primary font-bold border-b-2 border-primary pb-1">Inicio</a>
+                <a href="#" class="hover:text-primary">Café & Bebidas</a>
+                <a href="#" class="hover:text-primary">Suplementos</a>
+                <a href="#" class="hover:text-primary">Cuidado Personal</a>
+                <a href="#" class="hover:text-primary">Luvoco</a>
+                <a href="#" class="hover:text-primary">Promociones</a>
+                <a href="#" class="hover:text-primary">Blog</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <div class="relative hidden md:block">
+                    <input type="text" placeholder="Buscar productos..." class="bg-gray-100 rounded-full px-4 py-2 text-sm focus:outline-none w-48 border border-gray-200">
+                    <i class="fa-solid fa-search absolute right-3 top-2.5 text-gray-400"></i>
+                </div>
+                <button class="text-gray-600 hover:text-primary"><i class="fa-regular fa-heart text-xl"></i></button>
+                <button class="text-gray-600 hover:text-primary"><i class="fa-regular fa-user text-xl"></i></button>
+                <button class="text-gray-600 hover:text-primary relative">
+                    <i class="fa-solid fa-cart-shopping text-xl"></i>
+                    <span class="absolute -top-2 -right-2 bg-blue-500 text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">1</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative bg-cover bg-center bg-no-repeat pb-12" style="background-image: url('https://www.ganoexcel.com.co/wp-content/uploads/2026/05/banner-11-limpio-con-productos-final-1.png'); min-height: 550px;">
+        
+        <div class="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-transparent"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 py-16 flex flex-col justify-center min-h-[550px]">
+            <div class="md:w-1/2 z-10">
+                <p class="text-[10px] text-gray-500 tracking-widest mb-3 uppercase font-semibold">
+                    <span class="text-orange-400">Bienestar</span> • <span class="text-yellow-500">Energía</span> • <span class="text-blue-400">Prosperidad</span>
+                </p>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-2">
+                    Descubre una nueva <br>forma de vivir el <br>
+                    <span class="text-primary font-script text-6xl md:text-7xl lg:text-8xl font-normal leading-none tracking-wide">bienestar</span>
+                </h1>
+                <p class="text-gray-800 font-medium mb-8 max-w-sm text-sm">Productos premium con Ganoderma Lucidum para acompañar cada momento de tu vida.</p>
+                <div class="flex space-x-3">
+                    <button class="bg-primary hover:bg-blue-800 text-white px-6 py-2.5 rounded-md font-medium text-sm transition shadow-md">Comprar ahora</button>
+                    <button class="bg-white/90 backdrop-blur-sm hover:bg-white border border-gray-300 text-gray-800 px-6 py-2.5 rounded-md font-medium text-sm transition shadow-sm">Descubrir productos</button>
+                </div>
+                
+                <div class="flex flex-wrap gap-x-6 gap-y-2 mt-10 text-[11px] text-gray-700 font-medium">
+                    <div class="flex items-center gap-1.5"><i class="fa-solid fa-truck text-gray-400 text-sm"></i> Envíos a toda Colombia</div>
+                    <div class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-gray-400 text-sm"></i> Compra 100% segura</div>
+                    <div class="flex items-center gap-1.5"><i class="fa-solid fa-medal text-gray-400 text-sm"></i> Productos 100% originales</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 -mt-16 relative z-20">
+        <div class="bg-white rounded-2xl shadow-lg p-6 flex flex-wrap justify-between items-center text-center border border-gray-100">
+            <div class="w-1/3 md:w-1/6 flex flex-col items-center mb-4 md:mb-0 border-r border-gray-100 last:border-0">
+                <i class="fa-solid fa-bolt text-blue-500 text-2xl mb-2"></i>
+                <span class="text-xs font-bold text-gray-800">Energía</span>
+                <span class="text-[10px] text-gray-400">que te impulsa</span>
+            </div>
+            <div class="w-1/3 md:w-1/6 flex flex-col items-center mb-4 md:mb-0 border-r border-gray-100 last:border-0">
+                <i class="fa-brands fa-pagelines text-blue-500 text-2xl mb-2"></i>
+                <span class="text-xs font-bold text-gray-800">Bienestar</span>
+                <span class="text-[10px] text-gray-400">todos los días</span>
+            </div>
+            <div class="w-1/3 md:w-1/6 flex flex-col items-center mb-4 md:mb-0 border-r border-gray-100 last:border-0">
+                <i class="fa-solid fa-sparkles text-blue-500 text-2xl mb-2"></i>
+                <span class="text-xs font-bold text-gray-800">Belleza</span>
+                <span class="text-[10px] text-gray-400">que te hace brillar</span>
+            </div>
+            <div class="w-1/3 md:w-1/6 flex flex-col items-center border-r border-gray-100 last:border-0">
+                <i class="fa-solid fa-mug-hot text-blue-500 text-2xl mb-2"></i>
+                <span class="text-xs font-bold text-gray-800">Experiencia</span>
+                <span class="text-[10px] text-gray-400">gourmet</span>
+            </div>
+            <div class="w-1/3 md:w-1/6 flex flex-col items-center border-r border-gray-100 last:border-0">
+                <i class="fa-solid fa-bullseye text-blue-500 text-2xl mb-2"></i>
+                <span class="text-xs font-bold text-gray-800">Productividad</span>
+                <span class="text-[10px] text-gray-400">enfoque y mente</span>
+            </div>
+            <div class="w-1/3 md:w-1/6 flex flex-col items-center">
+                <i class="fa-solid fa-shield-heart text-blue-500 text-2xl mb-2"></i>
+                <span class="text-xs font-bold text-gray-800">Cuidado</span>
+                <span class="text-[10px] text-gray-400">para ti y tu familia</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-[#fcf3eb] rounded-xl p-6 flex flex-col justify-between relative overflow-hidden h-48 hover:shadow-md transition group border border-orange-100/50">
+                <div class="z-10">
+                    <h3 class="font-bold text-lg text-gray-800">Café & Bebidas</h3>
+                    <p class="text-[11px] text-gray-600 mt-1 mb-4">Gano Café, Luvoco,<br>Rico Series y más</p>
+                    <a href="#" class="text-[11px] bg-white border border-gray-300 px-3 py-1.5 rounded-full font-medium inline-block hover:bg-gray-50 hover:border-gray-400 transition-colors">Ver productos <i class="fa-solid fa-arrow-right ml-1 text-gray-400 group-hover:text-primary transition-colors"></i></a>
+                </div>
+                <img src="https://placehold.co/150x150/fcf3eb/a16207?text=Cafe" class="absolute bottom-0 right-0 w-28 h-28 object-cover" alt="Categoría Café">
+            </div>
+            <div class="bg-[#eefcf3] rounded-xl p-6 flex flex-col justify-between relative overflow-hidden h-48 hover:shadow-md transition group border border-green-100/50">
+                <div class="z-10">
+                    <h3 class="font-bold text-lg text-gray-800">Suplementos</h3>
+                    <p class="text-[11px] text-gray-600 mt-1 mb-4">Ganoderma, Cordygold,<br>Excellium y más</p>
+                    <a href="#" class="text-[11px] bg-white border border-gray-300 px-3 py-1.5 rounded-full font-medium inline-block hover:bg-gray-50 hover:border-gray-400 transition-colors">Ver productos <i class="fa-solid fa-arrow-right ml-1 text-gray-400 group-hover:text-green-600 transition-colors"></i></a>
+                </div>
+                <img src="https://placehold.co/150x150/eefcf3/15803d?text=Capsulas" class="absolute bottom-0 right-0 w-28 h-28 object-cover" alt="Categoría Suplementos">
+            </div>
+            <div class="bg-[#fceef5] rounded-xl p-6 flex flex-col justify-between relative overflow-hidden h-48 hover:shadow-md transition group border border-pink-100/50">
+                <div class="z-10">
+                    <h3 class="font-bold text-lg text-gray-800">Cuidado Personal</h3>
+                    <p class="text-[11px] text-gray-600 mt-1 mb-4">Piel/Brillo, Gano Soap,<br>Toothpaste y más</p>
+                    <a href="#" class="text-[11px] bg-white border border-gray-300 px-3 py-1.5 rounded-full font-medium inline-block hover:bg-gray-50 hover:border-gray-400 transition-colors">Ver productos <i class="fa-solid fa-arrow-right ml-1 text-gray-400 group-hover:text-pink-600 transition-colors"></i></a>
+                </div>
+                <img src="https://placehold.co/150x150/fceef5/b91c1c?text=Cuidado" class="absolute bottom-0 right-0 w-28 h-28 object-cover" alt="Categoría Cuidado Personal">
+            </div>
+            <div class="bg-[#eef5fc] rounded-xl p-6 flex flex-col justify-between relative overflow-hidden h-48 hover:shadow-md transition group border border-blue-100/50">
+                <div class="z-10">
+                    <h3 class="font-bold text-lg text-gray-800">Promociones</h3>
+                    <p class="text-[11px] text-gray-600 mt-1 mb-4">Combos, Kits y<br>Lanzamientos</p>
+                    <a href="#" class="text-[11px] bg-white border border-gray-300 px-3 py-1.5 rounded-full font-medium inline-block hover:bg-gray-50 hover:border-gray-400 transition-colors">Ver productos <i class="fa-solid fa-arrow-right ml-1 text-gray-400 group-hover:text-primary transition-colors"></i></a>
+                </div>
+                <img src="https://placehold.co/150x150/eef5fc/1d4ed8?text=Regalo" class="absolute bottom-0 right-0 w-28 h-28 object-cover" alt="Categoría Promociones">
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 py-8 mb-12">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold text-gray-900">Productos destacados</h2>
+            <div class="flex items-center gap-4">
+                <a href="#" class="text-sm text-primary font-medium hover:underline flex items-center gap-1.5">Ver todos <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                <div class="flex gap-2">
+                    <button class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 text-gray-400 transition-colors"><i class="fa-solid fa-chevron-left text-xs"></i></button>
+                    <button class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:border-primary hover:text-primary text-gray-600 transition-colors"><i class="fa-solid fa-chevron-right text-xs"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <div class="bg-white border border-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md transition relative group flex flex-col justify-between">
+                <div>
+                    <span class="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded z-10">10%<br>OFF</span>
+                    <div class="w-full h-32 flex items-center justify-center mb-4 overflow-hidden rounded-lg">
+                        <img src="https://placehold.co/200x200/fff/333?text=3en1" alt="Gano Café 3 en 1" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <h4 class="text-xs font-bold text-gray-800 mb-1 truncate">Gano Café 3 en 1</h4>
+                    <div class="text-yellow-400 text-[10px] mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> <span class="text-gray-400">(245)</span></div>
+                </div>
+                <div class="flex justify-between items-end mt-2">
+                    <div>
+                        <span class="font-bold text-gray-900 text-sm block">$88.900</span>
+                        <span class="text-[10px] text-gray-400 line-through block">$98.900</span>
+                    </div>
+                    <button class="bg-blue-50 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors shadow-inner"><i class="fa-solid fa-cart-shopping text-xs"></i></button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md transition relative group flex flex-col justify-between">
+                <div>
+                    <div class="w-full h-32 flex items-center justify-center mb-4 overflow-hidden rounded-lg">
+                        <img src="https://placehold.co/200x200/fff/333?text=Luvoco" alt="Luvoco Clásico" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <h4 class="text-xs font-bold text-gray-800 mb-1 truncate">Luvoco Clásico</h4>
+                    <div class="text-yellow-400 text-[10px] mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span class="text-gray-400">(156)</span></div>
+                </div>
+                <div class="flex justify-between items-end mt-2">
+                    <div>
+                        <span class="font-bold text-gray-900 text-sm block">$89.900</span>
+                    </div>
+                    <button class="bg-blue-50 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors shadow-inner"><i class="fa-solid fa-cart-shopping text-xs"></i></button>
+                </div>
+            </div>
+            
+            <div class="bg-white border border-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md transition relative group flex flex-col justify-between">
+                <div>
+                    <div class="w-full h-32 flex items-center justify-center mb-4 overflow-hidden rounded-lg">
+                        <img src="https://placehold.co/200x200/fff/333?text=Excell" alt="Excellium Cápsulas" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <h4 class="text-xs font-bold text-gray-800 mb-1 truncate">Excellium Cápsulas</h4>
+                    <div class="text-yellow-400 text-[10px] mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> <span class="text-gray-400">(110)</span></div>
+                </div>
+                <div class="flex justify-between items-end mt-2">
+                    <div>
+                        <span class="font-bold text-gray-900 text-sm block">$129.900</span>
+                    </div>
+                    <button class="bg-blue-50 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors shadow-inner"><i class="fa-solid fa-cart-shopping text-xs"></i></button>
+                </div>
+            </div>
+            
+            <div class="bg-white border border-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md transition relative group flex flex-col justify-between">
+                <div>
+                    <div class="w-full h-32 flex items-center justify-center mb-4 overflow-hidden rounded-lg">
+                        <img src="https://placehold.co/200x200/fff/333?text=GanoC" alt="Gano Cereal" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <h4 class="text-xs font-bold text-gray-800 mb-1 truncate">Gano Cereal</h4>
+                    <div class="text-yellow-400 text-[10px] mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> <span class="text-gray-400">(198)</span></div>
+                </div>
+                <div class="flex justify-between items-end mt-2">
+                    <div>
+                        <span class="font-bold text-gray-900 text-sm block">$95.500</span>
+                    </div>
+                    <button class="bg-blue-50 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors shadow-inner"><i class="fa-solid fa-cart-shopping text-xs"></i></button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md transition relative group flex flex-col justify-between">
+                <div>
+                    <div class="w-full h-32 flex items-center justify-center mb-4 overflow-hidden rounded-lg">
+                        <img src="https://placehold.co/200x200/fff/333?text=Soap" alt="Gano Transparent Soap" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <h4 class="text-xs font-bold text-gray-800 mb-1 truncate">Gano Transparent Soap</h4>
+                    <div class="text-yellow-400 text-[10px] mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span class="text-gray-400">(88)</span></div>
+                </div>
+                <div class="flex justify-between items-end mt-2">
+                    <div>
+                        <span class="font-bold text-gray-900 text-sm block">$52.000</span>
+                    </div>
+                    <button class="bg-blue-50 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors shadow-inner"><i class="fa-solid fa-cart-shopping text-xs"></i></button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md transition relative group flex flex-col justify-between">
+                <div>
+                    <div class="w-full h-32 flex items-center justify-center mb-4 overflow-hidden rounded-lg">
+                        <img src="https://placehold.co/200x200/fff/333?text=Cordy" alt="Cordy Gold" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <h4 class="text-xs font-bold text-gray-800 mb-1 truncate">Cordy Gold</h4>
+                    <div class="text-yellow-400 text-[10px] mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> <span class="text-gray-400">(75)</span></div>
+                </div>
+                <div class="flex justify-between items-end mt-2">
+                    <div>
+                        <span class="font-bold text-gray-900 text-sm block">$135.000</span>
+                    </div>
+                    <button class="bg-blue-50 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors shadow-inner"><i class="fa-solid fa-cart-shopping text-xs"></i></button>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <footer class="bg-white border-t border-gray-100 mt-12 pt-12 pb-6">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div>
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/05/logoweb.png" alt="Gano Excel Logo" class="h-14 w-auto mb-4">
+                <p class="text-[11px] text-gray-500 mb-4 pr-4 leading-relaxed">Mejoramos la calidad de vida de millones de personas a través de productos que generan bienestar y prosperidad.</p>
+                <div class="flex space-x-3 text-gray-400">
+                    <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="md:pl-8">
+                <h4 class="font-bold text-sm text-gray-800 mb-4 tracking-tight">Productos</h4>
+                <ul class="text-[11px] text-gray-500 space-y-2.5">
+                    <li><a href="#" class="hover:text-primary transition-colors">Café & Bebidas</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Suplementos</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Cuidado Personal</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Luvoco</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Kits y Combos</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-sm text-gray-800 mb-4 tracking-tight">Ayuda</h4>
+                <ul class="text-[11px] text-gray-500 space-y-2.5">
+                    <li><a href="#" class="hover:text-primary transition-colors">Preguntas frecuentes</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Envíos y entregas</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Cambios y devoluciones</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Términos y condiciones</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Políticas de privacidad</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-sm text-gray-800 mb-4 tracking-tight">Newsletter</h4>
+                <p class="text-[11px] text-gray-500 mb-3 leading-relaxed">Recibe promociones y noticias exclusivas directamente en tu correo.</p>
+                <div class="flex border border-gray-200 rounded-md overflow-hidden focus-within:border-primary transition-colors">
+                    <input type="email" placeholder="Tu correo electrónico" class="px-3 py-2 text-xs w-full focus:outline-none bg-gray-50">
+                    <button class="bg-primary text-white px-4 hover:bg-blue-800 transition-colors"><i class="fa-solid fa-paper-plane text-xs"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 border-t border-gray-100 pt-6 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-400 gap-4 md:gap-0">
+            <p>&copy; 2024 Gano Excel Colombia. Todos los derechos reservados. Desarrollado para demo.</p>
+            <div class="flex items-center gap-2.5 bg-gray-50 px-3 py-1.5 rounded-full border border-gray-100">
+                <span class="text-gray-500 font-bold tracking-tight">VISA</span>
+                <span class="text-gray-300">|</span>
+                <span class="text-gray-500 font-bold tracking-tight">Mastercard</span>
+                <span class="text-gray-300">|</span>
+                <span class="text-gray-500 font-bold tracking-tight">Nequi</span>
+                <span class="text-gray-300">|</span>
+                <span class="text-gray-500 font-bold tracking-tight">PSE</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
