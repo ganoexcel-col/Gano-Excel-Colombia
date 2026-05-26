@@ -82,6 +82,11 @@
             border-color: #9ca3af;
         }
         
+        .btn-ver-productos .flecha {
+            font-size: 16px;
+            line-height: 1;
+        }
+        
         /* Efecto hover para la flecha y el color en tarjetas */
         .tarjeta-fondo-imagen:hover .btn-ver-productos .fa-arrow-right.text-gray-400 {
             color: #0056b3; /* Primary hover para Café */
@@ -198,35 +203,29 @@
                     <h3>Café & Bebidas</h3>
                     <p>Gano Café, Luvoco,<br>Rico Series y más</p>
                     <a href="#" class="btn-ver-productos">
-                        Ver productos <i class="fa-solid fa-arrow-right ml-1 text-gray-400 transition-colors"></i>
+                        Ver productos <span class="flecha">&rarr;</span>
                     </a>
                 </div>
             </div>
 
-            <div class="bg-[#eefcf3] rounded-xl p-6 flex flex-col justify-between relative overflow-hidden h-full min-h-[240px] hover:shadow-md transition group border border-green-100/50 suplementos-card">
-                <div class="z-10 relative">
-                    <h3 class="font-bold text-2xl text-[#1a2b4c] mb-2">Suplementos</h3>
-                    <p class="text-[14px] text-[#5c6c85] mt-1 mb-4 leading-relaxed">Ganoderma, Cordygold,<br>Excellium y más</p>
-                </div>
-                <div class="z-10 relative mt-auto">
+            <div class="tarjeta-fondo-imagen" style="background-image: url('https://www.ganoexcel.com.co/wp-content/uploads/2026/05/suplementos.png');">
+                <div class="contenido-texto">
+                    <h3>Suplementos</h3>
+                    <p>Ganoderma, Cordygold,<br>Excellium y más</p>
                     <a href="#" class="btn-ver-productos">
-                        Ver productos <i class="fa-solid fa-arrow-right ml-1 text-gray-400 transition-colors"></i>
+                        Ver productos <span class="flecha">&rarr;</span>
                     </a>
                 </div>
-                <img src="https://placehold.co/150x150/eefcf3/15803d?text=Capsulas" class="absolute bottom-0 right-0 w-32 h-32 object-cover" alt="Categoría Suplementos">
             </div>
             
-            <div class="bg-[#fceef5] rounded-xl p-6 flex flex-col justify-between relative overflow-hidden h-full min-h-[240px] hover:shadow-md transition group border border-pink-100/50 cuidado-card">
-                <div class="z-10 relative">
-                    <h3 class="font-bold text-2xl text-[#1a2b4c] mb-2">Cuidado Personal</h3>
-                    <p class="text-[14px] text-[#5c6c85] mt-1 mb-4 leading-relaxed">Piel/Brillo, Gano Soap,<br>Toothpaste y más</p>
-                </div>
-                <div class="z-10 relative mt-auto">
+            <div class="tarjeta-fondo-imagen cuidado-card" style="background-image: url('https://www.ganoexcel.com.co/wp-content/uploads/2026/05/piel8.png');">
+                <div class="contenido-texto">
+                    <h3>Cuidado Personal</h3>
+                    <p>Piel/Brillo, Gano Soap,<br>Toothpaste y más</p>
                     <a href="#" class="btn-ver-productos">
-                        Ver productos <i class="fa-solid fa-arrow-right ml-1 text-gray-400 transition-colors"></i>
+                        Ver productos <span class="flecha">&rarr;</span>
                     </a>
                 </div>
-                <img src="https://placehold.co/150x150/fceef5/b91c1c?text=Cuidado" class="absolute bottom-0 right-0 w-32 h-32 object-cover" alt="Categoría Cuidado Personal">
             </div>
             
         </div>
