@@ -17,12 +17,12 @@
         @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
         .font-script { font-family: 'Caveat', cursive; }
 
-        /* NUEVOS ESTILOS PARA LAS TARJETAS CON IMAGEN DE FONDO */
+        /* ESTILOS PARA LAS TARJETAS CON IMAGEN DE FONDO */
         .tarjeta-fondo-imagen {
             position: relative;
             width: 100%;
             height: 100%;
-            min-height: 240px; /* Altura mínima para que se vea bien la imagen */
+            min-height: 240px; 
             background-size: cover; 
             background-position: right center; 
             background-repeat: no-repeat;
@@ -41,7 +41,7 @@
         .contenido-texto {
             position: relative;
             z-index: 2;
-            max-width: 60%; /* Evita que el texto se superponga sobre la imagen principal */
+            max-width: 60%; 
         }
 
         .contenido-texto h3 {
@@ -70,7 +70,7 @@
             color: #1a2b4c;
             background-color: #ffffff;
             border: 1px solid #d1d5db;
-            border-radius: 9999px; /* rounded-full */
+            border-radius: 9999px; 
             cursor: pointer;
             transition: all 0.2s ease;
             text-decoration: none;
@@ -89,13 +89,22 @@
         
         /* Efecto hover para la flecha y el color en tarjetas */
         .tarjeta-fondo-imagen:hover .btn-ver-productos .fa-arrow-right.text-gray-400 {
-            color: #0056b3; /* Primary hover para Café */
+            color: #0056b3; 
         }
         .suplementos-card:hover .btn-ver-productos .fa-arrow-right.text-gray-400 {
-            color: #16a34a; /* Green hover */
+            color: #16a34a; 
         }
         .cuidado-card:hover .btn-ver-productos .fa-arrow-right.text-gray-400 {
-            color: #dc2626; /* Pink/Red hover */
+            color: #dc2626; 
+        }
+
+        /* Ocultar barra de scroll para el menú de objetivos */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
     </style>
 </head>
@@ -218,10 +227,10 @@
                 </div>
             </div>
             
-            <div class="tarjeta-fondo-imagen cuidado-card" style="background-image: url('https://www.ganoexcel.com.co/wp-content/uploads/2026/05/piel8.png');">
+            <div class="tarjeta-fondo-imagen" style="background-image: url('https://www.ganoexcel.com.co/wp-content/uploads/2026/05/piel8.png');">
                 <div class="contenido-texto">
                     <h3>Cuidado Personal</h3>
-                    <p>Piel/Brillo, Gano Soap,<br>Toothpaste y más</p>
+                    <p>Reishé, Gano Soap,<br>Toothpaste y más</p>
                     <a href="#" class="btn-ver-productos">
                         Ver productos <span class="flecha">&rarr;</span>
                     </a>
@@ -231,7 +240,7 @@
         </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-4 py-8 mb-12">
+    <section class="max-w-7xl mx-auto px-4 py-8">
         <div class="flex justify-between items-center mb-6">
             <h2 class="text-2xl font-bold text-gray-900">Productos destacados</h2>
             <div class="flex items-center gap-4">
@@ -244,19 +253,20 @@
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            
             <div class="bg-white border border-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md transition relative group flex flex-col justify-between">
                 <div>
                     <span class="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded z-10">10%<br>OFF</span>
                     <div class="w-full h-32 flex items-center justify-center mb-4 overflow-hidden rounded-lg">
-                        <img src="https://placehold.co/200x200/fff/333?text=3en1" alt="Gano Café 3 en 1" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        <img src="https://www.ganoexcel.com.co/wp-content/uploads/2024/02/ganocafe3en1-1.jpg" alt="Gano Café 3 en 1" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300 mix-blend-multiply">
                     </div>
-                    <h4 class="text-xs font-bold text-gray-800 mb-1 truncate">Gano Café 3 en 1</h4>
+                    <h4 class="text-xs font-bold text-gray-800 mb-1 truncate">GANOCAFÉ 3 EN 1</h4>
                     <div class="text-yellow-400 text-[10px] mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> <span class="text-gray-400">(245)</span></div>
                 </div>
                 <div class="flex justify-between items-end mt-2">
                     <div>
-                        <span class="font-bold text-gray-900 text-sm block">$88.900</span>
-                        <span class="text-[10px] text-gray-400 line-through block">$98.900</span>
+                        <span class="font-bold text-gray-900 text-sm block">$110.900</span>
+                        <span class="text-[10px] text-gray-400 line-through block">$123.200</span>
                     </div>
                     <button class="bg-blue-50 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors shadow-inner"><i class="fa-solid fa-cart-shopping text-xs"></i></button>
                 </div>
@@ -265,14 +275,14 @@
             <div class="bg-white border border-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md transition relative group flex flex-col justify-between">
                 <div>
                     <div class="w-full h-32 flex items-center justify-center mb-4 overflow-hidden rounded-lg">
-                        <img src="https://placehold.co/200x200/fff/333?text=Luvoco" alt="Luvoco Clásico" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        <img src="https://www.ganoexcel.com.co/wp-content/uploads/2024/02/classic.jpg" alt="GanoCafé Classic" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300 mix-blend-multiply">
                     </div>
-                    <h4 class="text-xs font-bold text-gray-800 mb-1 truncate">Luvoco Clásico</h4>
+                    <h4 class="text-xs font-bold text-gray-800 mb-1 truncate">GANOCAFÉ CLASSIC</h4>
                     <div class="text-yellow-400 text-[10px] mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span class="text-gray-400">(156)</span></div>
                 </div>
                 <div class="flex justify-between items-end mt-2">
                     <div>
-                        <span class="font-bold text-gray-900 text-sm block">$89.900</span>
+                        <span class="font-bold text-gray-900 text-sm block">$110.900</span>
                     </div>
                     <button class="bg-blue-50 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors shadow-inner"><i class="fa-solid fa-cart-shopping text-xs"></i></button>
                 </div>
@@ -281,14 +291,14 @@
             <div class="bg-white border border-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md transition relative group flex flex-col justify-between">
                 <div>
                     <div class="w-full h-32 flex items-center justify-center mb-4 overflow-hidden rounded-lg">
-                        <img src="https://placehold.co/200x200/fff/333?text=Excell" alt="Excellium Cápsulas" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        <img src="https://www.ganoexcel.com.co/wp-content/uploads/2024/02/excelium.jpg" alt="Excellium Cápsulas" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300 mix-blend-multiply">
                     </div>
-                    <h4 class="text-xs font-bold text-gray-800 mb-1 truncate">Excellium Cápsulas</h4>
+                    <h4 class="text-xs font-bold text-gray-800 mb-1 truncate">EXCELLIUM CAPSULAS</h4>
                     <div class="text-yellow-400 text-[10px] mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> <span class="text-gray-400">(110)</span></div>
                 </div>
                 <div class="flex justify-between items-end mt-2">
                     <div>
-                        <span class="font-bold text-gray-900 text-sm block">$129.900</span>
+                        <span class="font-bold text-gray-900 text-sm block">$272.500</span>
                     </div>
                     <button class="bg-blue-50 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors shadow-inner"><i class="fa-solid fa-cart-shopping text-xs"></i></button>
                 </div>
@@ -297,14 +307,14 @@
             <div class="bg-white border border-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md transition relative group flex flex-col justify-between">
                 <div>
                     <div class="w-full h-32 flex items-center justify-center mb-4 overflow-hidden rounded-lg">
-                        <img src="https://placehold.co/200x200/fff/333?text=GanoC" alt="Gano Cereal" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        <img src="https://www.ganoexcel.com.co/wp-content/uploads/2024/02/cereal.jpg" alt="Gano C'Real Spirulina" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300 mix-blend-multiply">
                     </div>
-                    <h4 class="text-xs font-bold text-gray-800 mb-1 truncate">Gano Cereal</h4>
+                    <h4 class="text-xs font-bold text-gray-800 mb-1 truncate">GANO C'REAL SPIRULINA</h4>
                     <div class="text-yellow-400 text-[10px] mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> <span class="text-gray-400">(198)</span></div>
                 </div>
                 <div class="flex justify-between items-end mt-2">
                     <div>
-                        <span class="font-bold text-gray-900 text-sm block">$95.500</span>
+                        <span class="font-bold text-gray-900 text-sm block">$119.900</span>
                     </div>
                     <button class="bg-blue-50 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors shadow-inner"><i class="fa-solid fa-cart-shopping text-xs"></i></button>
                 </div>
@@ -313,14 +323,14 @@
             <div class="bg-white border border-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md transition relative group flex flex-col justify-between">
                 <div>
                     <div class="w-full h-32 flex items-center justify-center mb-4 overflow-hidden rounded-lg">
-                        <img src="https://placehold.co/200x200/fff/333?text=Soap" alt="Gano Transparent Soap" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        <img src="https://www.ganoexcel.com.co/wp-content/uploads/2024/02/ganotransparent.jpg" alt="Gano Transparent Soap" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300 mix-blend-multiply">
                     </div>
-                    <h4 class="text-xs font-bold text-gray-800 mb-1 truncate">Gano Transparent Soap</h4>
+                    <h4 class="text-xs font-bold text-gray-800 mb-1 truncate">GANO TRANSPARENT SOAP</h4>
                     <div class="text-yellow-400 text-[10px] mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span class="text-gray-400">(88)</span></div>
                 </div>
                 <div class="flex justify-between items-end mt-2">
                     <div>
-                        <span class="font-bold text-gray-900 text-sm block">$52.000</span>
+                        <span class="font-bold text-gray-900 text-sm block">$78.500</span>
                     </div>
                     <button class="bg-blue-50 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors shadow-inner"><i class="fa-solid fa-cart-shopping text-xs"></i></button>
                 </div>
@@ -329,19 +339,60 @@
             <div class="bg-white border border-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md transition relative group flex flex-col justify-between">
                 <div>
                     <div class="w-full h-32 flex items-center justify-center mb-4 overflow-hidden rounded-lg">
-                        <img src="https://placehold.co/200x200/fff/333?text=Cordy" alt="Cordy Gold" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        <img src="https://www.ganoexcel.com.co/wp-content/uploads/2024/02/cordygold.jpg" alt="Cordy Gold" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300 mix-blend-multiply">
                     </div>
-                    <h4 class="text-xs font-bold text-gray-800 mb-1 truncate">Cordy Gold</h4>
+                    <h4 class="text-xs font-bold text-gray-800 mb-1 truncate">CORDYGOLD CAPSULAS</h4>
                     <div class="text-yellow-400 text-[10px] mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> <span class="text-gray-400">(75)</span></div>
                 </div>
                 <div class="flex justify-between items-end mt-2">
                     <div>
-                        <span class="font-bold text-gray-900 text-sm block">$135.000</span>
+                        <span class="font-bold text-gray-900 text-sm block">$336.900</span>
                     </div>
                     <button class="bg-blue-50 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors shadow-inner"><i class="fa-solid fa-cart-shopping text-xs"></i></button>
                 </div>
             </div>
             
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 py-8 mb-12">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-xl sm:text-2xl font-bold text-[#1a2b4c]">¿Qué quieres mejorar hoy?</h2>
+            <a href="#" class="text-[11px] sm:text-xs text-blue-600 font-medium hover:underline flex items-center gap-1.5 whitespace-nowrap">Ver productos por objetivo <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+        </div>
+
+        <div class="flex overflow-x-auto pb-4 gap-4 scrollbar-hide snap-x">
+            
+            <div class="min-w-[140px] flex-1 bg-white border border-blue-100 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:shadow-md transition cursor-pointer snap-start">
+                <i class="fa-solid fa-bolt text-blue-500 text-3xl"></i>
+                <span class="text-[13px] font-bold text-[#1a2b4c] text-center">Más energía</span>
+            </div>
+
+            <div class="min-w-[140px] flex-1 bg-white border border-blue-100 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:shadow-md transition cursor-pointer snap-start">
+                <i class="fa-solid fa-brain text-blue-500 text-3xl"></i>
+                <span class="text-[13px] font-bold text-[#1a2b4c] text-center">Más enfoque</span>
+            </div>
+
+            <div class="min-w-[140px] flex-1 bg-white border border-fuchsia-100 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:shadow-md transition cursor-pointer snap-start">
+                <i class="fa-solid fa-wand-magic-sparkles text-fuchsia-500 text-3xl"></i>
+                <span class="text-[13px] font-bold text-[#1a2b4c] text-center leading-tight">Belleza y cuidado</span>
+            </div>
+
+            <div class="min-w-[140px] flex-1 bg-white border border-green-100 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:shadow-md transition cursor-pointer snap-start">
+                <i class="fa-solid fa-shield-heart text-green-500 text-3xl"></i>
+                <span class="text-[13px] font-bold text-[#1a2b4c] text-center leading-tight">Bienestar integral</span>
+            </div>
+
+            <div class="min-w-[140px] flex-1 bg-white border border-blue-100 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:shadow-md transition cursor-pointer snap-start">
+                <i class="fa-solid fa-dumbbell text-blue-500 text-3xl"></i>
+                <span class="text-[13px] font-bold text-[#1a2b4c] text-center">Vida activa</span>
+            </div>
+
+            <div class="min-w-[140px] flex-1 bg-white border border-blue-100 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:shadow-md transition cursor-pointer snap-start">
+                <i class="fa-solid fa-mug-hot text-blue-500 text-3xl"></i>
+                <span class="text-[13px] font-bold text-[#1a2b4c] text-center leading-tight">Experiencia gourmet</span>
+            </div>
+
         </div>
     </section>
 
