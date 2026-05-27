@@ -75,17 +75,15 @@
     </header>
 
     <main>
-        <!-- CONTENIDO PRINCIPAL DE CHECKOUT -->
         <div class="max-w-7xl mx-auto px-4 py-8">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <!-- Columna izquierda: opciones de flujo -->
                 <div class="lg:col-span-2">
                     <h1 class="text-2xl font-bold text-gray-900 mb-6">Finalizar compra</h1>
-                    
                     <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-6">
                         <h2 class="text-lg font-semibold text-gray-800 mb-4">¿Cómo deseas continuar?</h2>
                         
-                        <!-- Opción 1: Iniciar sesión (con formulario desplegable) -->
+                        <!-- Opción 1: Iniciar sesión -->
                         <div class="border rounded-xl p-4 mb-4 hover:border-primary transition-colors cursor-pointer" id="option-login">
                             <div class="flex items-start gap-3">
                                 <input type="radio" name="checkout_option" id="login_option" class="mt-1 w-4 h-4 text-primary focus:ring-primary" value="login">
@@ -104,6 +102,7 @@
                                     <input type="password" id="login-password" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
                                 </div>
                                 <button id="do-login" class="w-full bg-primary hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition">Iniciar sesión</button>
+                                <p class="text-xs text-gray-400 text-center mt-3">¿Olvidaste tu contraseña?</p>
                             </div>
                         </div>
                         
@@ -118,7 +117,7 @@
                             </div>
                         </div>
                         
-                        <!-- Opción 3: Pago como invitado (con formulario desplegable) -->
+                        <!-- Opción 3: Pago como invitado -->
                         <div class="border rounded-xl p-4 hover:border-primary transition-colors cursor-pointer" id="option-guest">
                             <div class="flex items-start gap-3">
                                 <input type="radio" name="checkout_option" id="guest_option" class="mt-1 w-4 h-4 text-primary focus:ring-primary" value="guest">
@@ -127,7 +126,7 @@
                                     <p class="text-sm text-gray-500">Completa tus datos sólo para esta compra, sin crear cuenta.</p>
                                 </label>
                             </div>
-                            <!-- Formulario de invitado (oculto por defecto) -->
+                            <!-- Formulario de invitado (oculto inicialmente) -->
                             <div id="guest-form" class="hidden mt-4 pl-7 border-t pt-4 space-y-4">
                                 <div class="bg-yellow-50 border-l-4 border-yellow-400 p-3 text-sm text-yellow-800">
                                     <i class="fa-solid fa-exclamation-triangle mr-2"></i>
@@ -164,14 +163,13 @@
                             </div>
                         </div>
                     </div>
-                    
                     <div class="flex items-center gap-2 text-xs text-gray-400 mt-4">
                         <i class="fa-solid fa-lock"></i>
                         <span>Tus datos están seguros. Compra 100% protegida.</span>
                     </div>
                 </div>
                 
-                <!-- Columna derecha: Resumen del pedido (igual) -->
+                <!-- Columna derecha: Resumen del pedido -->
                 <div class="lg:col-span-1">
                     <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sticky top-24">
                         <h2 class="text-lg font-bold text-gray-800 mb-4">Resumen del pedido</h2>
@@ -228,13 +226,13 @@
         
         // Mostrar/ocultar formularios según la opción seleccionada
         function updateFormsVisibility() {
-            // Login form
+            // Login
             if (radioLogin.checked) {
                 loginForm.classList.remove('hidden');
             } else {
                 loginForm.classList.add('hidden');
             }
-            // Guest form
+            // Invitado
             if (radioGuest.checked) {
                 guestForm.classList.remove('hidden');
             } else {
@@ -246,7 +244,7 @@
         radioRegister.addEventListener('change', updateFormsVisibility);
         radioGuest.addEventListener('change', updateFormsVisibility);
         
-        // Iniciar sesión
+        // Iniciar sesión (demo)
         const doLoginBtn = document.getElementById('do-login');
         if (doLoginBtn) {
             doLoginBtn.addEventListener('click', () => {
@@ -257,7 +255,7 @@
             });
         }
         
-        // Registro - redirige
+        // Registro: redirige a registro.html
         radioRegister.addEventListener('change', () => {
             if (radioRegister.checked) window.location.href = 'registro.html';
         });
@@ -267,7 +265,7 @@
             alert('Código de patrocinador verificado (demo)');
         });
         
-        // Continuar como invitado
+        // Continuar como invitado: redirige a pago.html
         const continueGuestBtn = document.getElementById('continue-guest');
         if (continueGuestBtn) {
             continueGuestBtn.addEventListener('click', () => {
@@ -283,10 +281,11 @@
                     alert('Debes aceptar los términos y condiciones.');
                     return;
                 }
-                // Opcional: guardar datos en localStorage si se desea pasar a la página de pago
+                // Guardar datos del invitado en localStorage (opcional)
                 localStorage.setItem('guest_nombre', nombre);
                 localStorage.setItem('guest_apellido', apellido);
                 localStorage.setItem('guest_email', email);
+                // Redirigir a la página de pago
                 window.location.href = 'pago.html';
             });
         }
