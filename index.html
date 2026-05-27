@@ -98,7 +98,7 @@
             color: #dc2626; 
         }
 
-        /* Ocultar barra de scroll para el menú de objetivos */
+        /* Ocultar barra de scroll para elementos deslizables */
         .scrollbar-hide::-webkit-scrollbar {
             display: none;
         }
@@ -118,12 +118,12 @@
             
             <nav class="hidden lg:flex space-x-6 text-sm font-medium text-gray-700">
                 <a href="#" class="text-primary font-bold border-b-2 border-primary pb-1">Inicio</a>
-                <a href="#" class="hover:text-primary">Café & Bebidas</a>
-                <a href="#" class="hover:text-primary">Suplementos</a>
-                <a href="#" class="hover:text-primary">Cuidado Personal</a>
-                <a href="#" class="hover:text-primary">Luvoco</a>
-                <a href="#" class="hover:text-primary">Promociones</a>
-                <a href="#" class="hover:text-primary">Blog</a>
+                <a href="#" class="hover:text-primary transition-colors">Café & Bebidas</a>
+                <a href="#" class="hover:text-primary transition-colors">Suplementos</a>
+                <a href="#" class="hover:text-primary transition-colors">Cuidado Personal</a>
+                <a href="#" class="hover:text-primary transition-colors">Luvoco</a>
+                <a href="#" class="hover:text-primary transition-colors">Promociones</a>
+                <a href="#" class="hover:text-primary transition-colors">Blog</a>
             </nav>
 
             <div class="flex items-center space-x-4">
@@ -244,7 +244,7 @@
         <div class="flex justify-between items-center mb-6">
             <h2 class="text-2xl font-bold text-gray-900">Productos destacados</h2>
             <div class="flex items-center gap-4">
-                <a href="#" class="text-sm text-primary font-medium hover:underline flex items-center gap-1.5">Ver todos <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                <a href="#" class="text-sm text-primary font-medium hover:underline flex items-center gap-1.5 transition-all">Ver todos <i class="fa-solid fa-arrow-right text-xs"></i></a>
                 <div class="flex gap-2">
                     <button class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 text-gray-400 transition-colors"><i class="fa-solid fa-chevron-left text-xs"></i></button>
                     <button class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:border-primary hover:text-primary text-gray-600 transition-colors"><i class="fa-solid fa-chevron-right text-xs"></i></button>
@@ -355,48 +355,157 @@
         </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-4 py-8 mb-12">
+    <section class="max-w-7xl mx-auto px-4 pt-8 pb-2">
         <div class="flex justify-between items-center mb-6">
             <h2 class="text-xl sm:text-2xl font-bold text-[#1a2b4c]">¿Qué quieres mejorar hoy?</h2>
-            <a href="#" class="text-[11px] sm:text-xs text-blue-600 font-medium hover:underline flex items-center gap-1.5 whitespace-nowrap">Ver productos por objetivo <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+            <a href="#" class="text-[11px] sm:text-xs text-blue-600 font-medium hover:underline flex items-center gap-1.5 whitespace-nowrap transition-all">Ver productos por objetivo <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
         </div>
 
         <div class="flex overflow-x-auto pb-4 gap-4 scrollbar-hide snap-x">
-            
-            <div class="min-w-[140px] flex-1 bg-white border border-blue-100 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:shadow-md transition cursor-pointer snap-start">
-                <i class="fa-solid fa-bolt text-blue-500 text-3xl"></i>
+            <div class="min-w-[140px] flex-1 bg-white border border-blue-100 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:shadow-md transition cursor-pointer snap-start group">
+                <i class="fa-solid fa-bolt text-blue-500 text-3xl transition-transform group-hover:scale-110"></i>
                 <span class="text-[13px] font-bold text-[#1a2b4c] text-center">Más energía</span>
             </div>
-
-            <div class="min-w-[140px] flex-1 bg-white border border-blue-100 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:shadow-md transition cursor-pointer snap-start">
-                <i class="fa-solid fa-brain text-blue-500 text-3xl"></i>
+            <div class="min-w-[140px] flex-1 bg-white border border-blue-100 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:shadow-md transition cursor-pointer snap-start group">
+                <i class="fa-solid fa-brain text-blue-500 text-3xl transition-transform group-hover:scale-110"></i>
                 <span class="text-[13px] font-bold text-[#1a2b4c] text-center">Más enfoque</span>
             </div>
-
-            <div class="min-w-[140px] flex-1 bg-white border border-fuchsia-100 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:shadow-md transition cursor-pointer snap-start">
-                <i class="fa-solid fa-wand-magic-sparkles text-fuchsia-500 text-3xl"></i>
+            <div class="min-w-[140px] flex-1 bg-white border border-fuchsia-100 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:shadow-md transition cursor-pointer snap-start group">
+                <i class="fa-solid fa-wand-magic-sparkles text-fuchsia-500 text-3xl transition-transform group-hover:scale-110"></i>
                 <span class="text-[13px] font-bold text-[#1a2b4c] text-center leading-tight">Belleza y cuidado</span>
             </div>
-
-            <div class="min-w-[140px] flex-1 bg-white border border-green-100 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:shadow-md transition cursor-pointer snap-start">
-                <i class="fa-solid fa-shield-heart text-green-500 text-3xl"></i>
+            <div class="min-w-[140px] flex-1 bg-white border border-green-100 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:shadow-md transition cursor-pointer snap-start group">
+                <i class="fa-solid fa-shield-heart text-green-500 text-3xl transition-transform group-hover:scale-110"></i>
                 <span class="text-[13px] font-bold text-[#1a2b4c] text-center leading-tight">Bienestar integral</span>
             </div>
-
-            <div class="min-w-[140px] flex-1 bg-white border border-blue-100 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:shadow-md transition cursor-pointer snap-start">
-                <i class="fa-solid fa-dumbbell text-blue-500 text-3xl"></i>
+            <div class="min-w-[140px] flex-1 bg-white border border-blue-100 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:shadow-md transition cursor-pointer snap-start group">
+                <i class="fa-solid fa-dumbbell text-blue-500 text-3xl transition-transform group-hover:scale-110"></i>
                 <span class="text-[13px] font-bold text-[#1a2b4c] text-center">Vida activa</span>
             </div>
-
-            <div class="min-w-[140px] flex-1 bg-white border border-blue-100 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:shadow-md transition cursor-pointer snap-start">
-                <i class="fa-solid fa-mug-hot text-blue-500 text-3xl"></i>
+            <div class="min-w-[140px] flex-1 bg-white border border-blue-100 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:shadow-md transition cursor-pointer snap-start group">
+                <i class="fa-solid fa-mug-hot text-blue-500 text-3xl transition-transform group-hover:scale-110"></i>
                 <span class="text-[13px] font-bold text-[#1a2b4c] text-center leading-tight">Experiencia gourmet</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 pt-0 pb-8">
+        <div class="relative w-full rounded-2xl md:rounded-[32px] overflow-hidden shadow-sm hover:shadow-md transition duration-300 flex items-center min-h-[200px] md:min-h-[260px] bg-cover bg-right" style="background-image: url('https://www.ganoexcel.com.co/wp-content/uploads/2026/05/banner-luvoco.png');">
+            <div class="relative z-10 px-6 md:px-12 py-8 max-w-md md:max-w-lg">
+                <span class="text-[#1a2b4c] font-bold text-sm md:text-base block mb-0">Experiencia</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-[#7a5230] mb-3 leading-none tracking-tight">Luvoco</h2>
+                <p class="text-[#1a2b4c] font-bold text-xs md:text-sm mb-0.5">Café de especialidad con Ganoderma</p>
+                <p class="text-[#1a2b4c] text-xs md:text-sm mb-5">Experiencia barista premium en casa.</p>
+                <a href="#" class="inline-block bg-[#0047a5] hover:bg-blue-800 text-white px-5 py-2 rounded-lg font-semibold text-xs transition-colors shadow-md">
+                    Explorar Luvoco
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="max-w-7xl mx-auto px-4 py-4 mb-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            
+            <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex flex-col">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-[#1a2b4c] font-bold text-lg">Combos del mes</h3>
+                    <a href="#" class="text-[11px] text-blue-600 font-medium flex items-center gap-1.5 hover:underline">Ver todos <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="grid grid-cols-3 gap-3 flex-grow">
+                    <div class="relative flex flex-col cursor-pointer group">
+                        <span class="absolute top-0 left-0 bg-red-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded z-10">-20%</span>
+                        <div class="bg-gray-50 rounded-lg p-2 flex-grow flex items-center justify-center mb-2 group-hover:bg-gray-100 transition-colors">
+                            <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/pielcombo2.jpg" alt="Kit Energía" class="h-16 w-auto object-contain mix-blend-multiply group-hover:scale-105 transition-transform">
+                        </div>
+                        <h4 class="text-[10px] font-bold text-gray-800 uppercase leading-tight mb-1 truncate">KIT ENERGÍA</h4>
+                        <p class="text-[#1a2b4c] font-black text-xs">$179.900 <span class="text-gray-400 line-through text-[9px] font-normal block sm:inline">$224.900</span></p>
+                    </div>
+                    <div class="relative flex flex-col cursor-pointer group">
+                        <span class="absolute top-0 left-0 bg-red-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded z-10">-30%</span>
+                        <div class="bg-gray-50 rounded-lg p-2 flex-grow flex items-center justify-center mb-2 group-hover:bg-gray-100 transition-colors">
+                            <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/04/pielcombo1.jpg" alt="Kit Belleza" class="h-16 w-auto object-contain mix-blend-multiply group-hover:scale-105 transition-transform">
+                        </div>
+                        <h4 class="text-[10px] font-bold text-gray-800 uppercase leading-tight mb-1 truncate">KIT BELLEZA</h4>
+                        <p class="text-[#1a2b4c] font-black text-xs">$189.900 <span class="text-gray-400 line-through text-[9px] font-normal block sm:inline">$266.000</span></p>
+                    </div>
+                    <div class="relative flex flex-col cursor-pointer group">
+                        <span class="absolute top-0 left-0 bg-red-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded z-10">-25%</span>
+                        <div class="bg-gray-50 rounded-lg p-2 flex-grow flex items-center justify-center mb-2 group-hover:bg-gray-100 transition-colors">
+                            <img src="https://placehold.co/150x150/f8fafc/333?text=Kit+Premium" alt="Kit Café Premium" class="h-16 w-auto object-contain mix-blend-multiply group-hover:scale-105 transition-transform">
+                        </div>
+                        <h4 class="text-[10px] font-bold text-gray-800 uppercase leading-tight mb-1 truncate">KIT CAFE PREMIUM</h4>
+                        <p class="text-[#1a2b4c] font-black text-xs">$199.900 <span class="text-gray-400 line-through text-[9px] font-normal block sm:inline">$266.000</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex flex-col">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-[#1a2b4c] font-bold text-lg">Testimonios</h3>
+                    <a href="#" class="text-[11px] text-blue-600 font-medium flex items-center gap-1.5 hover:underline">Ver todos <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="flex gap-3 overflow-hidden flex-grow pb-2">
+                    <div class="relative flex-1 rounded-xl overflow-hidden aspect-[3/4] cursor-pointer group">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&q=80" alt="Testimonio" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center">
+                            <div class="w-10 h-10 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white border border-white/20 group-hover:bg-blue-600 group-hover:border-blue-600 transition-all">
+                                <i class="fa-solid fa-play text-sm ml-0.5"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative flex-1 rounded-xl overflow-hidden aspect-[3/4] cursor-pointer group">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&q=80" alt="Testimonio" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center">
+                            <div class="w-10 h-10 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white border border-white/20 group-hover:bg-blue-600 group-hover:border-blue-600 transition-all">
+                                <i class="fa-solid fa-play text-sm ml-0.5"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative flex-1 rounded-xl overflow-hidden aspect-[3/4] cursor-pointer group">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&q=80" alt="Testimonio" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center">
+                            <div class="w-10 h-10 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white border border-white/20 group-hover:bg-blue-600 group-hover:border-blue-600 transition-all">
+                                <i class="fa-solid fa-play text-sm ml-0.5"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center gap-1.5 mt-2">
+                    <div class="w-1.5 h-1.5 rounded-full bg-blue-600"></div>
+                    <div class="w-1.5 h-1.5 rounded-full bg-gray-200"></div>
+                    <div class="w-1.5 h-1.5 rounded-full bg-gray-200"></div>
+                    <div class="w-1.5 h-1.5 rounded-full bg-gray-200"></div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex flex-col">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-[#1a2b4c] font-bold text-lg">Wellness Hub</h3>
+                    <a href="#" class="text-[11px] text-blue-600 font-medium flex items-center gap-1.5 hover:underline">Ver todos <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="flex flex-col gap-4 flex-grow justify-between">
+                    <div class="flex items-center gap-4 group cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=100&q=80" alt="Blog" class="w-16 h-12 rounded-lg object-cover flex-shrink-0 group-hover:opacity-90 transition-opacity">
+                        <p class="text-xs text-gray-700 font-medium group-hover:text-blue-600 transition-colors leading-snug">Beneficios del Ganoderma para tu salud</p>
+                    </div>
+                    <div class="flex items-center gap-4 group cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=100&q=80" alt="Blog" class="w-16 h-12 rounded-lg object-cover flex-shrink-0 group-hover:opacity-90 transition-opacity">
+                        <p class="text-xs text-gray-700 font-medium group-hover:text-blue-600 transition-colors leading-snug">5 hábitos para una vida más saludable</p>
+                    </div>
+                    <div class="flex items-center gap-4 group cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=100&q=80" alt="Blog" class="w-16 h-12 rounded-lg object-cover flex-shrink-0 group-hover:opacity-90 transition-opacity">
+                        <p class="text-xs text-gray-700 font-medium group-hover:text-blue-600 transition-colors leading-snug">Recetas saludables con Luvoco</p>
+                    </div>
+                    <div class="flex items-center gap-4 group cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?w=100&q=80" alt="Blog" class="w-16 h-12 rounded-lg object-cover flex-shrink-0 group-hover:opacity-90 transition-opacity">
+                        <p class="text-xs text-gray-700 font-medium group-hover:text-blue-600 transition-colors leading-snug">Rutinas para mejorar tu productividad diaria</p>
+                    </div>
+                </div>
             </div>
 
         </div>
     </section>
 
-    <footer class="bg-white border-t border-gray-100 mt-12 pt-12 pb-6">
+    <footer class="bg-white border-t border-gray-100 pt-12 pb-6">
         <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
                 <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/05/logoweb.png" alt="Gano Excel Logo" class="h-14 w-auto mb-4">
