@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gano Excel - Crear cuenta</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Caveat:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; color: #333; }
+        .text-primary { color: #0056b3; }
+        .bg-primary { background-color: #0056b3; }
+        .bg-light-blue { background-color: #f0f7ff; }
+        .font-script { font-family: 'Caveat', cursive; }
+        .mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(-100%);
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        .checkbox-custom {
+            accent-color: #0056b3;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- HEADER (EXACTAMENTE IGUAL AL INDEX ORIGINAL) -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/05/logoweb.png" alt="Gano Excel Logo" class="h-16 w-auto">
+            </div>
+            <nav class="hidden lg:flex space-x-6 text-sm font-medium text-gray-700">
+                <a href="#" class="text-primary font-bold border-b-2 border-primary pb-1">Inicio</a>
+                <a href="#" class="hover:text-primary transition-colors">Café & Bebidas</a>
+                <a href="#" class="hover:text-primary transition-colors">Suplementos</a>
+                <a href="#" class="hover:text-primary transition-colors">Cuidado Personal</a>
+                <a href="#" class="hover:text-primary transition-colors">Luvoco</a>
+                <a href="#" class="hover:text-primary transition-colors">Promociones</a>
+                <a href="#" class="hover:text-primary transition-colors">Blog</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <div class="relative hidden md:block">
+                    <input type="text" id="search-input" placeholder="Buscar productos..." class="bg-gray-100 rounded-full px-4 py-2 text-sm focus:outline-none w-48 border border-gray-200">
+                    <i class="fa-solid fa-search absolute right-3 top-2.5 text-gray-400"></i>
+                </div>
+                <button id="favorito-btn" class="text-gray-600 hover:text-primary" aria-label="Favoritos"><i class="fa-regular fa-heart text-xl"></i></button>
+                <button id="user-btn" class="text-gray-600 hover:text-primary" aria-label="Mi cuenta"><i class="fa-regular fa-user text-xl"></i></button>
+                <button id="cart-btn" class="text-gray-600 hover:text-primary relative" aria-label="Carrito de compras">
+                    <i class="fa-solid fa-cart-shopping text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-blue-500 text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">0</span>
+                </button>
+                <button id="menu-toggle" class="lg:hidden text-gray-600 focus:outline-none" aria-label="Menú">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 p-6 flex flex-col gap-4">
+            <button id="close-menu" class="self-end text-gray-500" aria-label="Cerrar menú"><i class="fa-solid fa-times text-xl"></i></button>
+            <nav class="flex flex-col gap-4 text-sm font-medium">
+                <a href="#" class="text-primary font-bold">Inicio</a>
+                <a href="#" class="hover:text-primary">Café & Bebidas</a>
+                <a href="#" class="hover:text-primary">Suplementos</a>
+                <a href="#" class="hover:text-primary">Cuidado Personal</a>
+                <a href="#" class="hover:text-primary">Luvoco</a>
+                <a href="#" class="hover:text-primary">Promociones</a>
+                <a href="#" class="hover:text-primary">Blog</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2">¿Nuevo aquí? ¡Regístrate hoy!</h1>
+            <p class="text-gray-600 mb-6">Parece que eres nuevo en <strong>Gano Excel Colombia</strong>. Completa el formulario como <strong>cliente</strong> con solo unos pocos pasos.</p>
+            
+            <form id="registro-form" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div><label class="block text-sm font-medium text-gray-700 mb-1">Correo electrónico *</label><input type="email" required class="w-full border border-gray-300 rounded-lg px-3 py-2"></div>
+                    <div><label class="block text-sm font-medium text-gray-700 mb-1">Nombre *</label><input type="text" required class="w-full border border-gray-300 rounded-lg px-3 py-2"></div>
+                    <div><label class="block text-sm font-medium text-gray-700 mb-1">Apellido *</label><input type="text" required class="w-full border border-gray-300 rounded-lg px-3 py-2"></div>
+                    <div><label class="block text-sm font-medium text-gray-700 mb-1">Tipo de Documento *</label><select class="w-full border border-gray-300 rounded-lg px-3 py-2"><option>Cédula de ciudadanía</option><option>Cédula de extranjería</option><option>Pasaporte</option></select></div>
+                    <div><label class="block text-sm font-medium text-gray-700 mb-1">Número de Identificación *</label><input type="text" required class="w-full border border-gray-300 rounded-lg px-3 py-2"></div>
+                    <div><label class="block text-sm font-medium text-gray-700 mb-1">Fecha de nacimiento *</label><input type="date" required class="w-full border border-gray-300 rounded-lg px-3 py-2"></div>
+                    <div><label class="block text-sm font-medium text-gray-700 mb-1">Género *</label><select class="w-full border border-gray-300 rounded-lg px-3 py-2"><option>Masculino</option><option>Femenino</option><option>Prefiero no decir</option></select></div>
+                </div>
+
+                <div class="bg-amber-50 p-4 rounded-lg border border-amber-200 text-sm text-gray-700">
+                    <i class="fa-solid fa-info-circle text-amber-600 mr-2"></i>
+                    <strong>¿Por qué necesitas mi número de identidad?</strong> El número de identificación es parte fundamental de nuestro proceso de verificación. Esto garantiza que sólo los usuarios genuinos y autorizados puedan utilizar nuestra plataforma, asegurando la seguridad de la cuenta.
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div><label class="block text-sm font-medium text-gray-700 mb-1">Dirección *</label><input type="text" required class="w-full border border-gray-300 rounded-lg px-3 py-2"></div>
+                    <div><label class="block text-sm font-medium text-gray-700 mb-1">Seleccionar Departamento *</label><select class="w-full border border-gray-300 rounded-lg px-3 py-2"><option>Antioquia</option><option>Cundinamarca</option><option>Valle del Cauca</option></select></div>
+                    <div><label class="block text-sm font-medium text-gray-700 mb-1">Seleccionar Provincia / Ciudad *</label><select class="w-full border border-gray-300 rounded-lg px-3 py-2"><option>Bogotá</option><option>Medellín</option><option>Cali</option></select></div>
+                    <div><label class="block text-sm font-medium text-gray-700 mb-1">Teléfono móvil *</label><input type="tel" required class="w-full border border-gray-300 rounded-lg px-3 py-2"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div><label class="block text-sm font-medium text-gray-700 mb-1">Contraseña *</label><input type="password" required class="w-full border border-gray-300 rounded-lg px-3 py-2"></div>
+                    <div><label class="block text-sm font-medium text-gray-700 mb-1">Confirmar contraseña *</label><input type="password" required class="w-full border border-gray-300 rounded-lg px-3 py-2"></div>
+                </div>
+
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <p class="font-semibold text-gray-800 mb-2">Reglas de contraseña:</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li><i class="fa-regular fa-circle-check text-green-600 mr-2"></i> Al menos debe ser 8 caracteres</li>
+                        <li><i class="fa-regular fa-circle-check text-green-600 mr-2"></i> Debe contener letras minúsculas y mayúsculas</li>
+                        <li><i class="fa-regular fa-circle-check text-green-600 mr-2"></i> Debe contener al menos un número</li>
+                    </ul>
+                </div>
+
+                <div class="border-t pt-4">
+                    <p class="text-sm text-gray-700 mb-2">Si deseas continuar con el mismo patrocinador no olvides dar clic en el botón "Comprobar"</p>
+                    <div class="flex flex-col sm:flex-row gap-3 items-end">
+                        <div class="flex-1"><label class="block text-sm font-medium text-gray-700 mb-1">Código de patrocinador (opcional)</label><input type="text" placeholder="Ej: GANO2025" class="w-full border border-gray-300 rounded-lg px-3 py-2"></div>
+                        <button type="button" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg transition">Comprobar</button>
+                    </div>
+                </div>
+
+                <div class="border-t pt-4">
+                    <p class="font-medium text-gray-800 mb-2">¿Te gustaría recibir notificaciones por SMS/Email para conocer promociones y descuentos?</p>
+                    <div class="flex gap-6"><label class="inline-flex items-center gap-2"><input type="radio" name="notificaciones" value="si" class="checkbox-custom"> Sí</label><label class="inline-flex items-center gap-2"><input type="radio" name="notificaciones" value="no" class="checkbox-custom" checked> No</label></div>
+                    <p class="text-xs text-gray-500 mt-2">Al seleccionar «Sí» arriba, pueden aplicarse tarifas de mensajes y datos. La frecuencia de los mensajes varía. Puede darse de baja haciendo clic en el enlace que aparece en los mensajes. Para más información, consulte nuestra Política de privacidad.</p>
+                </div>
+
+                <div class="border-t pt-4">
+                    <label class="flex items-start gap-3 cursor-pointer"><input type="checkbox" required class="mt-1 checkbox-custom"><span class="text-sm text-gray-700">He leído y acepto los <a href="#" class="text-primary hover:underline">términos de uso</a>, reglas de <strong>Gano Excel Colombia</strong> y <a href="#" class="text-primary hover:underline">Política de Privacidad</a>.</span></label>
+                </div>
+
+                <button type="submit" class="w-full md:w-auto bg-primary hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition shadow-md">Registro</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- FOOTER (EXACTAMENTE IGUAL AL INDEX ORIGINAL) -->
+    <footer class="bg-white border-t border-gray-100 pt-12 pb-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div><img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/05/logoweb.png" alt="Gano Excel Logo" class="h-14 w-auto mb-4"><p class="text-[11px] text-gray-500 mb-4">Mejoramos la calidad de vida de millones de personas a través de productos que generan bienestar y prosperidad.</p><div class="flex space-x-3 text-gray-400"><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a></div></div>
+            <div><h4 class="font-bold text-sm text-gray-800 mb-4">Productos</h4><ul class="text-[11px] text-gray-500 space-y-2.5"><li><a href="#">Café & Bebidas</a></li><li><a href="#">Suplementos</a></li><li><a href="#">Cuidado Personal</a></li><li><a href="#">Luvoco</a></li><li><a href="#">Kits y Combos</a></li></ul></div>
+            <div><h4 class="font-bold text-sm text-gray-800 mb-4">Ayuda</h4><ul class="text-[11px] text-gray-500 space-y-2.5"><li><a href="#">Preguntas frecuentes</a></li><li><a href="#">Envíos y entregas</a></li><li><a href="#">Cambios y devoluciones</a></li><li><a href="#">Términos y condiciones</a></li><li><a href="#">Políticas de privacidad</a></li></ul></div>
+            <div><h4 class="font-bold text-sm text-gray-800 mb-4">Newsletter</h4><p class="text-[11px] text-gray-500 mb-3">Recibe promociones y noticias exclusivas.</p><form id="newsletter-form" class="flex border border-gray-200 rounded-md overflow-hidden"><input type="email" placeholder="Tu correo electrónico" class="px-3 py-2 text-xs w-full focus:outline-none bg-gray-50" required><button type="submit" class="bg-primary text-white px-4 hover:bg-blue-800"><i class="fa-solid fa-paper-plane text-xs"></i></button></form></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 border-t border-gray-100 pt-6 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-400 gap-4"><p>&copy; 2025 Gano Excel Colombia. Todos los derechos reservados.</p><div class="flex items-center gap-2.5 bg-gray-50 px-3 py-1.5 rounded-full"><span>VISA</span><span>|</span><span>Mastercard</span><span>|</span><span>Nequi</span><span>|</span><span>PSE</span></div></div>
+    </footer>
+
+    <script>
+        // Funcionalidades del header/footer (idénticas al index)
+        document.getElementById('cart-btn')?.addEventListener('click', () => window.location.href = 'checkout.html');
+        document.getElementById('user-btn')?.addEventListener('click', () => alert('Área de cliente'));
+        document.getElementById('favorito-btn')?.addEventListener('click', () => alert('Favoritos'));
+        document.getElementById('newsletter-form')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Gracias por suscribirte');
+        });
+        // Menú móvil
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+        menuToggle?.addEventListener('click', () => mobileMenu.classList.add('open'));
+        closeMenu?.addEventListener('click', () => mobileMenu.classList.remove('open'));
+        document.querySelectorAll('#mobile-menu a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
+        // Búsqueda demo
+        document.getElementById('search-input')?.addEventListener('input', (e) => console.log('Buscar:', e.target.value));
+        // Registro
+        document.getElementById('registro-form')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('¡Registro exitoso! Redirigiendo al checkout...');
+            window.location.href = 'checkout.html';
+        });
+        document.querySelector('button[type="button"]')?.addEventListener('click', () => alert('Código de patrocinador verificado (demo)'));
+    </script>
+</body>
+</html>
