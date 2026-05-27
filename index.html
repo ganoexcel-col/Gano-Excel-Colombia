@@ -115,11 +115,81 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+
+        /* === ESTILOS DEL MODAL (NUEVO, SIN AFECTAR EL RESTO) === */
+        .product-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .product-modal.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-container {
+            background: white;
+            max-width: 500px;
+            width: 90%;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
+            transform: scale(0.95);
+            transition: transform 0.2s ease;
+        }
+        .product-modal.open .modal-container {
+            transform: scale(1);
+        }
+        .modal-header {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+            background: #f9fafb;
+        }
+        .modal-body {
+            padding: 1.5rem;
+        }
+        .modal-footer {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid #e5e7eb;
+            background: #f9fafb;
+        }
+        .quantity-selector {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #f3f4f6;
+            padding: 6px 12px;
+            border-radius: 40px;
+        }
+        .quantity-btn-modal {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: white;
+            border: 1px solid #d1d5db;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .quantity-btn-modal:hover {
+            background-color: #e5e7eb;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
 
-    <!-- HEADER -->
+    <!-- HEADER (sin cambios) -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
             <div class="flex items-center gap-2">
@@ -227,16 +297,15 @@
             </div>
 
             <div id="productos-container" class="productos-scroll">
-                <!-- Los productos se generan dinámicamente para permitir filtro de búsqueda, pero los dejamos estáticos con IDs -->
-                <!-- Producto 1 -->
-                <div class="producto-card bg-white border border-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md transition relative group flex flex-col justify-between" data-nombre="GANOCAFÉ 3 EN 1" data-precio="110900">
+                <!-- Producto 1 - GANO CAFÉ 3 EN 1 (con data-atributos adicionales para el modal) -->
+                <div class="producto-card bg-white border border-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md transition relative group flex flex-col justify-between" data-id="gano-cafe-3en1" data-nombre="GANOCAFÉ 3 EN 1" data-precio="110900" data-codigo="1000285">
                     <div><span class="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded z-10">10% OFF</span>
                     <div class="w-full h-32 flex items-center justify-center mb-4"><img src="https://www.ganoexcel.com.co/wp-content/uploads/2024/02/ganocafe3en1-1.jpg" alt="Gano Café 3 en 1" loading="lazy" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform mix-blend-multiply"></div>
                     <h4 class="text-xs font-bold text-gray-800 mb-1">GANOCAFÉ 3 EN 1</h4>
                     <div class="text-yellow-400 text-[10px] mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> <span class="text-gray-400">(245)</span></div></div>
-                    <div class="flex justify-between items-end mt-2"><div><span class="font-bold text-gray-900 text-sm">$110.900</span><span class="text-[10px] text-gray-400 line-through block">$123.200</span></div><button class="add-to-cart bg-blue-50 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors"><i class="fa-solid fa-cart-shopping text-xs"></i></button></div>
+                    <div class="flex justify-between items-end mt-2"><div><span class="font-bold text-gray-900 text-sm">$110.900</span><span class="text-[10px] text-gray-400 line-through block">$123.200</span></div><button class="add-to-cart-special bg-blue-50 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors"><i class="fa-solid fa-cart-shopping text-xs"></i></button></div>
                 </div>
-                <!-- Producto 2 -->
+                <!-- Producto 2 (sigue igual) -->
                 <div class="producto-card bg-white border border-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md transition relative group" data-nombre="GANOCAFÉ CLASSIC" data-precio="110900">
                     <div><div class="w-full h-32 flex items-center justify-center mb-4"><img src="https://www.ganoexcel.com.co/wp-content/uploads/2024/02/classic.jpg" alt="GanoCafé Classic" loading="lazy" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform mix-blend-multiply"></div>
                     <h4 class="text-xs font-bold text-gray-800 mb-1">GANOCAFÉ CLASSIC</h4><div class="text-yellow-400 text-[10px] mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span class="text-gray-400">(156)</span></div></div>
@@ -340,16 +409,56 @@
         <div class="max-w-7xl mx-auto px-4 border-t border-gray-100 pt-6 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-400 gap-4"><p>&copy; 2025 Gano Excel Colombia. Todos los derechos reservados.</p><div class="flex items-center gap-2.5 bg-gray-50 px-3 py-1.5 rounded-full"><span>VISA</span><span>|</span><span>Mastercard</span><span>|</span><span>Nequi</span><span>|</span><span>PSE</span></div></div>
     </footer>
 
+    <!-- MODAL ESPECIAL PARA GANO CAFÉ 3 EN 1 -->
+    <div id="productModal" class="product-modal">
+        <div class="modal-container">
+            <div class="modal-header flex justify-between items-center">
+                <h3 class="text-lg font-bold text-gray-800">Agregar al carrito</h3>
+                <button id="closeModalBtn" class="text-gray-400 hover:text-gray-600"><i class="fa-solid fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="flex gap-4">
+                    <img id="modal-img" src="https://www.ganoexcel.com.co/wp-content/uploads/2024/02/ganocafe3en1-1.jpg" alt="Gano Café 3 en 1" class="w-24 h-24 object-contain bg-gray-50 rounded-lg">
+                    <div>
+                        <h4 id="modal-nombre" class="font-bold text-gray-800">GANOCAFÉ 3 EN 1</h4>
+                        <p id="modal-codigo" class="text-xs text-gray-400">Código: 1000285</p>
+                        <p id="modal-precio" class="text-primary font-bold text-lg mt-1">$110.900</p>
+                        <p class="text-xs text-gray-400 line-through">$123.200</p>
+                    </div>
+                </div>
+                <div class="mt-4 flex justify-between items-center">
+                    <span class="text-sm font-medium">Cantidad:</span>
+                    <div class="quantity-selector">
+                        <button id="modal-qty-minus" class="quantity-btn-modal">-</button>
+                        <span id="modal-qty" class="w-8 text-center font-semibold">1</span>
+                        <button id="modal-qty-plus" class="quantity-btn-modal">+</button>
+                    </div>
+                </div>
+                <div class="mt-4 bg-gray-50 p-3 rounded-lg">
+                    <div class="flex justify-between text-sm"><span>Subtotal:</span><span id="modal-subtotal" class="font-bold">$110.900</span></div>
+                </div>
+            </div>
+            <div class="modal-footer flex flex-col gap-2">
+                <button id="modal-add-to-cart" class="w-full bg-primary hover:bg-blue-700 text-white py-2 rounded-lg font-semibold">Agregar al carrito</button>
+                <div class="flex gap-2">
+                    <button id="modal-keep-buying" class="flex-1 border border-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-50">Seguir comprando</button>
+                    <button id="modal-go-to-checkout" class="flex-1 bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg">Pagar ahora</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         (function() {
-            // -------- CARRITO DINÁMICO ----------
+            // -------- CARRITO DINÁMICO (original) ----------
             let cartCount = 0;
             const cartCountSpan = document.getElementById('cart-count');
             function updateCart(inc = 1) {
                 cartCount += inc;
                 if (cartCountSpan) cartCountSpan.innerText = cartCount;
             }
-            // Añadir eventos a todos los botones "add-to-cart"
+            
+            // Evento para botones .add-to-cart (productos normales, incluyendo el producto 1? No, el producto 1 tiene clase .add-to-cart-special)
             document.querySelectorAll('.add-to-cart').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     e.stopPropagation();
@@ -369,7 +478,7 @@
                 nextBtn.addEventListener('click', () => container.scrollBy({ left: 280, behavior: 'smooth' }));
             }
 
-            // -------- BÚSQUEDA EN TIEMPO REAL (filtra productos por nombre) ----------
+            // -------- BÚSQUEDA EN TIEMPO REAL ----------
             const searchInput = document.getElementById('search-input');
             if (searchInput) {
                 searchInput.addEventListener('input', (e) => {
@@ -432,7 +541,6 @@
             }
             menuToggle?.addEventListener('click', () => toggleMenu(true));
             closeMenu?.addEventListener('click', () => toggleMenu(false));
-            // Cerrar menú al hacer clic en un enlace
             document.querySelectorAll('#mobile-menu a').forEach(link => {
                 link.addEventListener('click', () => toggleMenu(false));
             });
@@ -442,6 +550,68 @@
                 alert(`🛍️ Tienes ${cartCount} producto(s) en tu carrito`);
             });
             document.getElementById('user-btn')?.addEventListener('click', () => alert('👤 Inicia sesión o regístrate'));
+
+            // ========== NUEVO: MODAL PARA GANO CAFÉ 3 EN 1 ==========
+            const modal = document.getElementById('productModal');
+            const modalQtySpan = document.getElementById('modal-qty');
+            const modalSubtotalSpan = document.getElementById('modal-subtotal');
+            let currentQty = 1;
+            const productData = {
+                id: 'gano-cafe-3en1',
+                nombre: 'GANOCAFÉ 3 EN 1',
+                precio: 110900,
+                codigo: '1000285',
+                imagen: 'https://www.ganoexcel.com.co/wp-content/uploads/2024/02/ganocafe3en1-1.jpg'
+            };
+
+            function formatCOP(value) {
+                return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 }).format(value);
+            }
+
+            function updateModalQty() {
+                modalQtySpan.innerText = currentQty;
+                const subtotal = productData.precio * currentQty;
+                modalSubtotalSpan.innerText = formatCOP(subtotal);
+            }
+
+            function openModal() {
+                currentQty = 1;
+                updateModalQty();
+                modal.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                modal.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+
+            document.getElementById('modal-qty-plus')?.addEventListener('click', () => { currentQty++; updateModalQty(); });
+            document.getElementById('modal-qty-minus')?.addEventListener('click', () => { if (currentQty > 1) currentQty--; updateModalQty(); });
+            document.getElementById('closeModalBtn')?.addEventListener('click', closeModal);
+            document.getElementById('modal-keep-buying')?.addEventListener('click', closeModal);
+
+            document.getElementById('modal-add-to-cart')?.addEventListener('click', () => {
+                // Añadir al carrito usando el contador global del sitio
+                updateCart(currentQty);
+                alert(`✅ ${currentQty} unidad(es) de ${productData.nombre} agregadas al carrito`);
+                closeModal();
+            });
+
+            document.getElementById('modal-go-to-checkout')?.addEventListener('click', () => {
+                updateCart(currentQty);
+                alert(`✅ ${currentQty} unidad(es) de ${productData.nombre} agregadas al carrito. Redirigiendo a pago...`);
+                closeModal();
+                // Aquí podrías redirigir a una página de checkout
+            });
+
+            // Asignar evento al botón especial del producto Gano Café 3 en 1
+            document.querySelectorAll('.add-to-cart-special').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    openModal();
+                });
+            });
         })();
     </script>
 </body>
