@@ -94,18 +94,16 @@
                                     <p class="text-sm text-gray-500">Ya tengo una cuenta, quiero ingresar mis datos.</p>
                                 </label>
                             </div>
-                            <!-- Formulario de login (oculto por defecto) -->
                             <div id="login-form" class="hidden mt-4 pl-7 border-t pt-4">
                                 <div class="mb-3">
                                     <label class="block text-xs font-medium text-gray-700 mb-1">Correo electrónico</label>
-                                    <input type="email" id="login-email" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-primary" placeholder="tucorreo@ejemplo.com">
+                                    <input type="email" id="login-email" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
                                 </div>
                                 <div class="mb-4">
                                     <label class="block text-xs font-medium text-gray-700 mb-1">Contraseña</label>
-                                    <input type="password" id="login-password" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-primary" placeholder="••••••••">
+                                    <input type="password" id="login-password" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
                                 </div>
                                 <button id="do-login" class="w-full bg-primary hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition">Iniciar sesión</button>
-                                <p class="text-xs text-gray-400 text-center mt-3">¿Olvidaste tu contraseña?</p>
                             </div>
                         </div>
                         
@@ -120,7 +118,7 @@
                             </div>
                         </div>
                         
-                        <!-- Opción 3: Pago como invitado -->
+                        <!-- Opción 3: Pago como invitado (con formulario desplegable) -->
                         <div class="border rounded-xl p-4 hover:border-primary transition-colors cursor-pointer" id="option-guest">
                             <div class="flex items-start gap-3">
                                 <input type="radio" name="checkout_option" id="guest_option" class="mt-1 w-4 h-4 text-primary focus:ring-primary" value="guest">
@@ -128,6 +126,41 @@
                                     <span class="font-semibold text-gray-800">Pagar como invitado</span>
                                     <p class="text-sm text-gray-500">Completa tus datos sólo para esta compra, sin crear cuenta.</p>
                                 </label>
+                            </div>
+                            <!-- Formulario de invitado (oculto por defecto) -->
+                            <div id="guest-form" class="hidden mt-4 pl-7 border-t pt-4 space-y-4">
+                                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-3 text-sm text-yellow-800">
+                                    <i class="fa-solid fa-exclamation-triangle mr-2"></i>
+                                    <strong>Pago como invitado</strong><br>
+                                    Estás comprando directamente desde <strong>Gano Excel Colombia</strong>. Si deseas comprar a través de un distribuidor, por favor cierra esta ventana y usa su enlace.
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Nombre *</label>
+                                    <input type="text" id="guest-nombre" class="w-full border border-gray-300 rounded-lg px-3 py-2" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Apellido *</label>
+                                    <input type="text" id="guest-apellido" class="w-full border border-gray-300 rounded-lg px-3 py-2" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Correo electrónico *</label>
+                                    <input type="email" id="guest-email" class="w-full border border-gray-300 rounded-lg px-3 py-2" required>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-700 mb-2">Si deseas continuar con el mismo patrocinador no olvides dar clic en el botón "Comprobar"</p>
+                                    <div class="flex flex-col sm:flex-row gap-3 items-end">
+                                        <div class="flex-1">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Código de patrocinador (opcional)</label>
+                                            <input type="text" id="guest-codigo" placeholder="Ej: GANO2025" class="w-full border border-gray-300 rounded-lg px-3 py-2">
+                                        </div>
+                                        <button type="button" id="comprobar-pat" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg transition">Comprobar</button>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <input type="checkbox" id="guest-terminos" class="mt-1 rounded text-primary focus:ring-primary" required>
+                                    <label for="guest-terminos" class="text-sm text-gray-700">He leído y acepto las <a href="#" class="text-primary hover:underline">condiciones de uso</a>, normas de <strong>Gano Excel Colombia</strong> y <a href="#" class="text-primary hover:underline">Política de Privacidad</a>.</label>
+                                </div>
+                                <button id="continue-guest" class="w-full bg-primary hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition">Continuar como invitado</button>
                             </div>
                         </div>
                     </div>
@@ -138,7 +171,7 @@
                     </div>
                 </div>
                 
-                <!-- Columna derecha: Resumen del pedido (con 1 unidad de Gano Café 3 en 1) -->
+                <!-- Columna derecha: Resumen del pedido (igual) -->
                 <div class="lg:col-span-1">
                     <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sticky top-24">
                         <h2 class="text-lg font-bold text-gray-800 mb-4">Resumen del pedido</h2>
@@ -191,13 +224,21 @@
         const radioRegister = document.getElementById('register_option');
         const radioGuest = document.getElementById('guest_option');
         const loginForm = document.getElementById('login-form');
+        const guestForm = document.getElementById('guest-form');
         
-        // Mostrar/ocultar formulario de login cuando se selecciona la opción
+        // Mostrar/ocultar formularios según la opción seleccionada
         function updateFormsVisibility() {
+            // Login form
             if (radioLogin.checked) {
                 loginForm.classList.remove('hidden');
             } else {
                 loginForm.classList.add('hidden');
+            }
+            // Guest form
+            if (radioGuest.checked) {
+                guestForm.classList.remove('hidden');
+            } else {
+                guestForm.classList.add('hidden');
             }
         }
         
@@ -205,54 +246,60 @@
         radioRegister.addEventListener('change', updateFormsVisibility);
         radioGuest.addEventListener('change', updateFormsVisibility);
         
-        // Botón de iniciar sesión
+        // Iniciar sesión
         const doLoginBtn = document.getElementById('do-login');
         if (doLoginBtn) {
             doLoginBtn.addEventListener('click', () => {
                 const email = document.getElementById('login-email').value;
-                const password = document.getElementById('login-password').value;
-                if (!email || !password) {
-                    alert('Por favor ingresa correo y contraseña');
+                const pwd = document.getElementById('login-password').value;
+                if (!email || !pwd) alert('Ingresa correo y contraseña');
+                else alert(`Bienvenido ${email}. Redirigiendo al pago...`);
+            });
+        }
+        
+        // Registro - redirige
+        radioRegister.addEventListener('change', () => {
+            if (radioRegister.checked) window.location.href = 'registro.html';
+        });
+        
+        // Comprobar código patrocinador (demo)
+        document.getElementById('comprobar-pat')?.addEventListener('click', () => {
+            alert('Código de patrocinador verificado (demo)');
+        });
+        
+        // Continuar como invitado
+        const continueGuestBtn = document.getElementById('continue-guest');
+        if (continueGuestBtn) {
+            continueGuestBtn.addEventListener('click', () => {
+                const nombre = document.getElementById('guest-nombre').value.trim();
+                const apellido = document.getElementById('guest-apellido').value.trim();
+                const email = document.getElementById('guest-email').value.trim();
+                const terminos = document.getElementById('guest-terminos').checked;
+                if (!nombre || !apellido || !email) {
+                    alert('Por favor completa todos los campos obligatorios.');
                     return;
                 }
-                alert(`Bienvenido ${email}. Redirigiendo al método de pago...`);
-                // Aquí puedes redirigir a la siguiente etapa
+                if (!terminos) {
+                    alert('Debes aceptar los términos y condiciones.');
+                    return;
+                }
+                // Opcional: guardar datos en localStorage si se desea pasar a la página de pago
+                localStorage.setItem('guest_nombre', nombre);
+                localStorage.setItem('guest_apellido', apellido);
+                localStorage.setItem('guest_email', email);
+                window.location.href = 'pago.html';
             });
         }
-        
-        // Opciones de registro y pago como invitado
-        // REGISTRO: Redirige a la página de registro
-        radioRegister.addEventListener('change', () => {
-            if (radioRegister.checked) {
-                window.location.href = 'registro.html';
-            }
-        });
-        
-        radioGuest.addEventListener('change', () => {
-            if (radioGuest.checked) {
-                alert('Continuar como invitado. Completa tus datos de envío.');
-            }
-        });
         
         // ---------- FUNCIONALIDADES DEL HEADER/FOOTER (igual que en index) ----------
-        // Buscador (demo)
         const searchInput = document.getElementById('search-input');
         if (searchInput) {
-            searchInput.addEventListener('input', (e) => {
-                console.log('Buscando:', e.target.value);
-            });
+            searchInput.addEventListener('input', (e) => console.log('Buscando:', e.target.value));
         }
-        
-        // Favoritos
         document.getElementById('favorito-btn')?.addEventListener('click', () => alert('💖 Producto añadido a favoritos'));
         document.getElementById('user-btn')?.addEventListener('click', () => alert('👤 Inicia sesión o regístrate'));
+        document.getElementById('cart-btn')?.addEventListener('click', () => window.location.href = 'checkout.html');
         
-        // Carrito (redirige al checkout mismo o a donde quieras)
-        document.getElementById('cart-btn')?.addEventListener('click', () => {
-            window.location.href = 'checkout.html';
-        });
-        
-        // Newsletter
         const newsletter = document.getElementById('newsletter-form');
         if (newsletter) {
             newsletter.addEventListener('submit', (e) => {
@@ -272,9 +319,7 @@
         }
         menuToggle?.addEventListener('click', () => toggleMenu(true));
         closeMenu?.addEventListener('click', () => toggleMenu(false));
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => toggleMenu(false));
-        });
+        document.querySelectorAll('#mobile-menu a').forEach(link => link.addEventListener('click', () => toggleMenu(false)));
     </script>
 </body>
 </html>
