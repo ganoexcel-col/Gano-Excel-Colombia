@@ -14,18 +14,27 @@
         .bg-primary { background-color: #0056b3; }
         .bg-light-blue { background-color: #f0f7ff; }
         .font-script { font-family: 'Caveat', cursive; }
+
+        /* Menú móvil */
+        .mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(-100%);
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
     </style>
 </head>
 <body class="bg-gray-50">
 
-    <!-- HEADER (EXACTAMENTE IGUAL AL INDEX) -->
+    <!-- ========== HEADER EXACTAMENTE IGUAL AL INDEX ========== -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
             <div class="flex items-center gap-2">
-                <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/05/logoweb.png" alt="Gano Excel Logo" class="h-16 w-auto">
+                <a href="index.html">
+                    <img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/05/logoweb.png" alt="Gano Excel Logo" class="h-16 w-auto">
+                </a>
             </div>
-            
-            <!-- Desktop Navigation -->
             <nav class="hidden lg:flex space-x-6 text-sm font-medium text-gray-700">
                 <a href="index.html" class="hover:text-primary transition-colors">Inicio</a>
                 <a href="#" class="hover:text-primary transition-colors">Café & Bebidas</a>
@@ -35,8 +44,6 @@
                 <a href="#" class="hover:text-primary transition-colors">Promociones</a>
                 <a href="#" class="hover:text-primary transition-colors">Blog</a>
             </nav>
-
-            <!-- Desktop Icons -->
             <div class="flex items-center space-x-4">
                 <div class="relative hidden md:block">
                     <input type="text" id="search-input" placeholder="Buscar productos..." class="bg-gray-100 rounded-full px-4 py-2 text-sm focus:outline-none w-48 border border-gray-200">
@@ -48,18 +55,15 @@
                     <i class="fa-solid fa-cart-shopping text-xl"></i>
                     <span id="cart-count" class="absolute -top-2 -right-2 bg-blue-500 text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">1</span>
                 </button>
-                <!-- Botón menú hamburguesa móvil -->
                 <button id="menu-toggle" class="lg:hidden text-gray-600 focus:outline-none" aria-label="Menú">
                     <i class="fa-solid fa-bars text-2xl"></i>
                 </button>
             </div>
         </div>
-
-        <!-- Mobile Menu (igual que index) -->
-        <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 p-6 flex flex-col gap-4 transition-transform duration-300 transform -translate-x-full">
+        <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 p-6 flex flex-col gap-4">
             <button id="close-menu" class="self-end text-gray-500" aria-label="Cerrar menú"><i class="fa-solid fa-times text-xl"></i></button>
             <nav class="flex flex-col gap-4 text-sm font-medium">
-                <a href="index.html" class="text-primary font-bold">Inicio</a>
+                <a href="index.html" class="hover:text-primary">Inicio</a>
                 <a href="#" class="hover:text-primary">Café & Bebidas</a>
                 <a href="#" class="hover:text-primary">Suplementos</a>
                 <a href="#" class="hover:text-primary">Cuidado Personal</a>
@@ -78,12 +82,11 @@
                 <div class="lg:col-span-2">
                     <h1 class="text-2xl font-bold text-gray-900 mb-6">Finalizar compra</h1>
                     
-                    <!-- Tarjeta con las 3 opciones -->
                     <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-6">
                         <h2 class="text-lg font-semibold text-gray-800 mb-4">¿Cómo deseas continuar?</h2>
                         
-                        <!-- Opción 1: Iniciar sesión -->
-                        <div class="border rounded-xl p-4 mb-4 hover:border-primary transition-colors cursor-pointer group" id="option-login">
+                        <!-- Opción 1: Iniciar sesión (con formulario desplegable) -->
+                        <div class="border rounded-xl p-4 mb-4 hover:border-primary transition-colors cursor-pointer" id="option-login">
                             <div class="flex items-start gap-3">
                                 <input type="radio" name="checkout_option" id="login_option" class="mt-1 w-4 h-4 text-primary focus:ring-primary" value="login">
                                 <label for="login_option" class="flex-1 cursor-pointer">
@@ -91,10 +94,23 @@
                                     <p class="text-sm text-gray-500">Ya tengo una cuenta, quiero ingresar mis datos.</p>
                                 </label>
                             </div>
+                            <!-- Formulario de login (oculto por defecto) -->
+                            <div id="login-form" class="hidden mt-4 pl-7 border-t pt-4">
+                                <div class="mb-3">
+                                    <label class="block text-xs font-medium text-gray-700 mb-1">Correo electrónico</label>
+                                    <input type="email" id="login-email" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-primary" placeholder="tucorreo@ejemplo.com">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-xs font-medium text-gray-700 mb-1">Contraseña</label>
+                                    <input type="password" id="login-password" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-primary" placeholder="••••••••">
+                                </div>
+                                <button id="do-login" class="w-full bg-primary hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition">Iniciar sesión</button>
+                                <p class="text-xs text-gray-400 text-center mt-3">¿Olvidaste tu contraseña?</p>
+                            </div>
                         </div>
                         
                         <!-- Opción 2: Registrarse -->
-                        <div class="border rounded-xl p-4 mb-4 hover:border-primary transition-colors cursor-pointer group" id="option-register">
+                        <div class="border rounded-xl p-4 mb-4 hover:border-primary transition-colors cursor-pointer" id="option-register">
                             <div class="flex items-start gap-3">
                                 <input type="radio" name="checkout_option" id="register_option" class="mt-1 w-4 h-4 text-primary focus:ring-primary" value="register">
                                 <label for="register_option" class="flex-1 cursor-pointer">
@@ -105,7 +121,7 @@
                         </div>
                         
                         <!-- Opción 3: Pago como invitado -->
-                        <div class="border rounded-xl p-4 hover:border-primary transition-colors cursor-pointer group" id="option-guest">
+                        <div class="border rounded-xl p-4 hover:border-primary transition-colors cursor-pointer" id="option-guest">
                             <div class="flex items-start gap-3">
                                 <input type="radio" name="checkout_option" id="guest_option" class="mt-1 w-4 h-4 text-primary focus:ring-primary" value="guest">
                                 <label for="guest_option" class="flex-1 cursor-pointer">
@@ -114,23 +130,18 @@
                                 </label>
                             </div>
                         </div>
-                        
-                        <button id="continue-btn" class="mt-6 w-full bg-primary hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition shadow-md">Continuar</button>
                     </div>
                     
-                    <!-- Mensaje de seguridad -->
                     <div class="flex items-center gap-2 text-xs text-gray-400 mt-4">
                         <i class="fa-solid fa-lock"></i>
                         <span>Tus datos están seguros. Compra 100% protegida.</span>
                     </div>
                 </div>
                 
-                <!-- Columna derecha: Resumen del pedido -->
+                <!-- Columna derecha: Resumen del pedido (con 1 unidad de Gano Café 3 en 1) -->
                 <div class="lg:col-span-1">
                     <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sticky top-24">
                         <h2 class="text-lg font-bold text-gray-800 mb-4">Resumen del pedido</h2>
-                        
-                        <!-- Producto: Gano Café 3 en 1 (1 unidad) -->
                         <div class="flex gap-4 pb-4 border-b border-gray-100">
                             <img src="https://www.ganoexcel.com.co/wp-content/uploads/2024/02/ganocafe3en1-1.jpg" alt="Gano Café 3 en 1" class="w-20 h-20 object-contain bg-gray-50 rounded-lg">
                             <div class="flex-1">
@@ -142,24 +153,11 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <!-- Totales -->
                         <div class="mt-4 space-y-2">
-                            <div class="flex justify-between text-sm text-gray-600">
-                                <span>Subtotal</span>
-                                <span>$110.900</span>
-                            </div>
-                            <div class="flex justify-between text-sm text-gray-600">
-                                <span>Envío</span>
-                                <span>Calculado en el siguiente paso</span>
-                            </div>
-                            <div class="flex justify-between text-base font-bold text-gray-900 pt-3 border-t">
-                                <span>Total</span>
-                                <span>$110.900</span>
-                            </div>
+                            <div class="flex justify-between text-sm text-gray-600"><span>Subtotal</span><span>$110.900</span></div>
+                            <div class="flex justify-between text-sm text-gray-600"><span>Envío</span><span>Calculado en el siguiente paso</span></div>
+                            <div class="flex justify-between text-base font-bold text-gray-900 pt-3 border-t"><span>Total</span><span>$110.900</span></div>
                         </div>
-                        
-                        <!-- Métodos de pago -->
                         <div class="mt-6 pt-4 border-t border-gray-100">
                             <p class="text-xs text-gray-400 mb-2">Métodos de pago aceptados</p>
                             <div class="flex gap-3 text-gray-500 text-lg">
@@ -176,7 +174,7 @@
         </div>
     </main>
 
-    <!-- FOOTER (EXACTAMENTE IGUAL AL INDEX) -->
+    <!-- ========== FOOTER EXACTAMENTE IGUAL AL INDEX ========== -->
     <footer class="bg-white border-t border-gray-100 pt-12 pb-6">
         <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div><img src="https://www.ganoexcel.com.co/wp-content/uploads/2026/05/logoweb.png" alt="Gano Excel Logo" class="h-14 w-auto mb-4"><p class="text-[11px] text-gray-500 mb-4">Mejoramos la calidad de vida de millones de personas a través de productos que generan bienestar y prosperidad.</p><div class="flex space-x-3 text-gray-400"><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a></div></div>
@@ -188,56 +186,71 @@
     </footer>
 
     <script>
-        // -------- MENÚ HAMBURGUESA (mismo código del index) ----------
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeMenu = document.getElementById('close-menu');
-        function toggleMenu(open) {
-            if (open) mobileMenu?.classList.add('translate-x-0');
-            else mobileMenu?.classList.remove('translate-x-0');
-        }
-        menuToggle?.addEventListener('click', () => toggleMenu(true));
-        closeMenu?.addEventListener('click', () => toggleMenu(false));
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => toggleMenu(false));
-        });
-
-        // -------- OPCIONES DE CHECKOUT ----------
-        const continueBtn = document.getElementById('continue-btn');
-        const radioButtons = document.querySelectorAll('input[name="checkout_option"]');
+        // ---------- LÓGICA DE CHECKOUT ----------
+        const radioLogin = document.getElementById('login_option');
+        const radioRegister = document.getElementById('register_option');
+        const radioGuest = document.getElementById('guest_option');
+        const loginForm = document.getElementById('login-form');
         
-        // Al hacer clic en la tarjeta, selecciona el radio
-        document.querySelectorAll('#option-login, #option-register, #option-guest').forEach(card => {
-            card.addEventListener('click', () => {
-                const radio = card.querySelector('input[type="radio"]');
-                if (radio) radio.checked = true;
-            });
-        });
-        
-        continueBtn.addEventListener('click', () => {
-            let selected = null;
-            for (let radio of radioButtons) {
-                if (radio.checked) {
-                    selected = radio.value;
-                    break;
-                }
-            }
-            if (!selected) {
-                alert('Por favor selecciona una opción para continuar.');
-                return;
-            }
-            
-            if (selected === 'login') {
-                alert('Redirigiendo al formulario de inicio de sesión...');
-                // Aquí iría la redirección a login
-            } else if (selected === 'register') {
-                alert('Redirigiendo al formulario de registro...');
+        // Mostrar/ocultar formulario de login cuando se selecciona la opción
+        function updateFormsVisibility() {
+            if (radioLogin.checked) {
+                loginForm.classList.remove('hidden');
             } else {
+                loginForm.classList.add('hidden');
+            }
+        }
+        
+        radioLogin.addEventListener('change', updateFormsVisibility);
+        radioRegister.addEventListener('change', updateFormsVisibility);
+        radioGuest.addEventListener('change', updateFormsVisibility);
+        
+        // Botón de iniciar sesión
+        const doLoginBtn = document.getElementById('do-login');
+        if (doLoginBtn) {
+            doLoginBtn.addEventListener('click', () => {
+                const email = document.getElementById('login-email').value;
+                const password = document.getElementById('login-password').value;
+                if (!email || !password) {
+                    alert('Por favor ingresa correo y contraseña');
+                    return;
+                }
+                alert(`Bienvenido ${email}. Redirigiendo al método de pago...`);
+                // Aquí puedes redirigir a la siguiente etapa
+            });
+        }
+        
+        // Opciones de registro y pago como invitado (demo)
+        radioRegister.addEventListener('change', () => {
+            if (radioRegister.checked) {
+                alert('Redirigiendo al formulario de registro...');
+            }
+        });
+        radioGuest.addEventListener('change', () => {
+            if (radioGuest.checked) {
                 alert('Continuar como invitado. Completa tus datos de envío.');
             }
         });
-
-        // -------- NEWSLETTER (demo) ----------
+        
+        // ---------- FUNCIONALIDADES DEL HEADER/FOOTER (igual que en index) ----------
+        // Buscador (demo)
+        const searchInput = document.getElementById('search-input');
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                console.log('Buscando:', e.target.value);
+            });
+        }
+        
+        // Favoritos
+        document.getElementById('favorito-btn')?.addEventListener('click', () => alert('💖 Producto añadido a favoritos'));
+        document.getElementById('user-btn')?.addEventListener('click', () => alert('👤 Inicia sesión o regístrate'));
+        
+        // Carrito (redirige al checkout mismo o a donde quieras)
+        document.getElementById('cart-btn')?.addEventListener('click', () => {
+            window.location.href = 'checkout.html';
+        });
+        
+        // Newsletter
         const newsletter = document.getElementById('newsletter-form');
         if (newsletter) {
             newsletter.addEventListener('submit', (e) => {
@@ -247,20 +260,18 @@
             });
         }
         
-        // Búsqueda (placeholder, no crítica)
-        const searchInput = document.getElementById('search-input');
-        if (searchInput) {
-            searchInput.addEventListener('input', (e) => {
-                console.log('Buscando:', e.target.value);
-            });
+        // Menú móvil
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+        function toggleMenu(open) {
+            if (open) mobileMenu?.classList.add('open');
+            else mobileMenu?.classList.remove('open');
         }
-        
-        // Favoritos, usuario, carrito (demo)
-        document.getElementById('favorito-btn')?.addEventListener('click', () => alert('💖 Añadido a favoritos'));
-        document.getElementById('user-btn')?.addEventListener('click', () => alert('👤 Inicia sesión o regístrate'));
-        document.getElementById('cart-btn')?.addEventListener('click', () => {
-            // En checkout, si quieres volver al index o al carrito
-            window.location.href = 'index.html';
+        menuToggle?.addEventListener('click', () => toggleMenu(true));
+        closeMenu?.addEventListener('click', () => toggleMenu(false));
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
         });
     </script>
 </body>
