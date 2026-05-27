@@ -109,7 +109,7 @@
                             </div>
                         </div>
                         
-                        <!-- Opción 2: Registrarse -->
+                        <!-- Opción 2: Registrarse (redirige a registro.html) -->
                         <div class="border rounded-xl p-4 mb-4 hover:border-primary transition-colors cursor-pointer" id="option-register">
                             <div class="flex items-start gap-3">
                                 <input type="radio" name="checkout_option" id="register_option" class="mt-1 w-4 h-4 text-primary focus:ring-primary" value="register">
@@ -220,12 +220,14 @@
             });
         }
         
-        // Opciones de registro y pago como invitado (demo)
+        // Opciones de registro y pago como invitado
+        // REGISTRO: Redirige a la página de registro
         radioRegister.addEventListener('change', () => {
             if (radioRegister.checked) {
-                alert('Redirigiendo al formulario de registro...');
+                window.location.href = 'registro.html';
             }
         });
+        
         radioGuest.addEventListener('change', () => {
             if (radioGuest.checked) {
                 alert('Continuar como invitado. Completa tus datos de envío.');
