@@ -167,11 +167,11 @@
         document.querySelectorAll('#mobile-menu a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
         // Búsqueda demo
         document.getElementById('search-input')?.addEventListener('input', (e) => console.log('Buscar:', e.target.value));
-        // Registro
+        // Registro: redirige a la página de pago
         document.getElementById('registro-form')?.addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('¡Registro exitoso! Redirigiendo al checkout...');
-            window.location.href = 'checkout.html';
+            alert('¡Registro exitoso! Redirigiendo al formulario de pago...');
+            window.location.href = 'pago.html';
         });
         document.querySelector('button[type="button"]')?.addEventListener('click', () => alert('Código de patrocinador verificado (demo)'));
     </script>
